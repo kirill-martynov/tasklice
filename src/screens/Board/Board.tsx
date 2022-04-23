@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Title } from '@core/components/Title';
 
-import s from './Home.module.scss';
+import s from './Board.module.scss';
 
-export const Home = () => {
+export const Board = () => {
   return (
     <div className={s.root}>
-      <Title>Home</Title>
+      <Title>Board</Title>
     </div>
   );
 };

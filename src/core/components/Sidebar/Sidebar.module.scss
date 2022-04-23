@@ -1,0 +1,43 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 200px;
+  padding: 20px;
+
+  background-color: var(--secondary-color);
+}
+
+.menuItem {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+
+  color: #99a9c4;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:first-child {
+    margin-top: 100px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.menuItem.active {
+  color: #fff;
+
+  background-color: var(--primary-color);
+  border-radius: 10px;
+
+  &:hover {
+    opacity: initial;
+    cursor: initial;
+  }
+}
