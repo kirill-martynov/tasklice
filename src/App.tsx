@@ -1,21 +1,30 @@
-import { Provider } from 'react-redux';
 import { Routes, Route } from 'react-router';
-import { HistoryRouter as Router } from 'redux-first-history/rr6';
 
-import { reduxHistory, store } from './core/redux/store';
+import { Sidebar } from '@core/components/Sidebar';
+import { Header } from '@core/components/Header';
 
-import { Home } from './screens/Home';
+import { Home } from '@screens/Home';
+import { Tasks } from '@screens/Tasks';
+import { Board } from '@screens/Board';
+
+import s from './App.module.scss';
 
 function App() {
   return (
-    <Provider store={store}>
-      <Router history={reduxHistory}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
-      </Router>
-    </Provider>
+    <div className={s.root}>
+      <Sidebar />
+      <main className={s.main}>
+        <Header />
+        <div className={s.content}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/tasks" element={<Tasks />} />
+            <Route path="/board" element={<Board />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </div>
+      </main>
+    </div>
   );
 }
 
