@@ -1,10 +1,12 @@
 .root {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   height: 100vh;
 }
 
 .main {
-  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 
 .content {
