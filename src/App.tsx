@@ -1,13 +1,16 @@
+import * as React from 'react';
 import { Routes, Route } from 'react-router';
 
 import { Sidebar } from '@core/components/Sidebar';
 import { Header } from '@core/components/Header';
 
-import { Home } from '@screens/Home';
-import { Tasks } from '@screens/Tasks';
-import { Board } from '@screens/Board';
-
 import s from './App.module.scss';
+
+const ROUTES = [
+  { element: React.lazy(() => import('@screens/Home')), path: '/' },
+  { element: React.lazy(() => import('@screens/Tasks')), path: '/tasks' },
+  { element: React.lazy(() => import('@screens/Board')), path: '/board' },
+];
 
 function App() {
   return (
@@ -16,12 +19,21 @@ function App() {
       <main className={s.main}>
         <Header />
         <div className={s.content}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/tasks" element={<Tasks />} />
-            <Route path="/board" element={<Board />} />
-            <Route path="*" element={<Home />} />
-          </Routes>
+          <React.Suspense fallback="loading...">
+            <Routes>
+              {ROUTES.map((route) => {
+                const Screen = route.element;
+
+                return (
+                  <Route
+                    key={route.path}
+                    path={route.path}
+                    element={<Screen />}
+                  />
+                );
+              })}
+            </Routes>
+          </React.Suspense>
         </div>
       </main>
     </div>

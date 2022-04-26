@@ -1,5 +1,6 @@
-import { Title } from '@core/components/Title';
 import React from 'react';
+
+import { Title } from '@core/components/Title';
 
 import s from './Tasks.module.scss';
 
