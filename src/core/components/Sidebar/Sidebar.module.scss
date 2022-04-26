@@ -7,25 +7,34 @@
   background-color: var(--secondary-color);
 }
 
+.logo {
+  margin-bottom: 105px;
+}
+
 .menuItem {
-  padding: 10px 15px;
-  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  padding: 6px 15px;
+  margin-bottom: 16px;
 
   color: #99a9c4;
-  font-size: 18px;
-  letter-spacing: 1px;
+  font-size: 20px;
   text-decoration: none;
 
   &:hover {
     opacity: 0.6;
   }
 
-  &:first-child {
-    margin-top: 100px;
-  }
-
   &:last-child {
     margin-bottom: 0;
+  }
+
+  svg {
+    margin-right: 10px;
+
+    path {
+      fill: #99a9c4;
+    }
   }
 }
 
@@ -38,5 +47,11 @@
   &:hover {
     opacity: initial;
     cursor: initial;
+  }
+
+  svg {
+    path {
+      fill: #fff;
+    }
   }
 }

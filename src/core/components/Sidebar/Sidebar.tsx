@@ -1,13 +1,14 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import SVG from 'react-inlinesvg';
 import cn from 'classnames';
 
 import s from './Sidebar.module.scss';
 
 const MENU = [
-  { label: 'Home', path: '/home' },
-  { label: 'Tasks', path: '/tasks' },
-  { label: 'Board', path: '/board' },
+  { label: 'Home', path: '/', icon: 'home' },
+  { label: 'Tasks', path: '/tasks', icon: 'tasks' },
+  { label: 'Board', path: '/board', icon: 'board' },
 ];
 
 export const Sidebar = () => {
@@ -15,6 +16,7 @@ export const Sidebar = () => {
 
   return (
     <div className={s.root}>
+      <div className={s.logo} />
       {MENU.map((item) => (
         <NavLink
           key={item.label}
@@ -23,7 +25,8 @@ export const Sidebar = () => {
           })}
           to={item.path}
         >
-          {item.label}
+          <SVG src={`icons/${item.icon}.svg`} width={22} height={22} />
+          <span>{item.label}</span>
         </NavLink>
       ))}
     </div>
