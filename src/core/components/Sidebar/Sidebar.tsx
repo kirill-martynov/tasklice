@@ -3,13 +3,9 @@ import { NavLink, useLocation } from 'react-router-dom';
 import SVG from 'react-inlinesvg';
 import cn from 'classnames';
 
-import s from './Sidebar.module.scss';
+import { MENU } from './sidebarConstants';
 
-const MENU = [
-  { label: 'Home', path: '/', icon: 'home' },
-  { label: 'Tasks', path: '/tasks', icon: 'tasks' },
-  { label: 'Board', path: '/board', icon: 'board' },
-];
+import s from './Sidebar.module.scss';
 
 export const Sidebar = () => {
   const location = useLocation();
