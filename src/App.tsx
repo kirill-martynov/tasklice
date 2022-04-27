@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router';
 
 import { Sidebar } from '@core/components/Sidebar';
 import { Header } from '@core/components/Header';
+import { Preloader } from '@core/components/Preloader';
 
 import s from './App.module.scss';
 
@@ -20,7 +21,8 @@ function App() {
       <main className={s.main}>
         <Header />
         <div className={s.content}>
-          <React.Suspense fallback="loading...">
+          <Preloader />
+          <React.Suspense fallback="Loading...">
             <Routes>
               {ROUTES.map((route) => {
                 const Screen = route.element;
