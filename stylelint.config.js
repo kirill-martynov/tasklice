@@ -7,6 +7,7 @@ module.exports = {
     'at-rule-no-unknown': null,
     'scss/at-rule-no-unknown': true,
     'declaration-empty-line-before': null,
+    'declaration-block-no-redundant-longhand-properties': null,
     'order/properties-order': [
       {
         groupName: 'pseudo',
