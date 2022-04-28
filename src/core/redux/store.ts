@@ -3,7 +3,7 @@ import { createReduxHistoryContext } from 'redux-first-history';
 import logger from 'redux-logger';
 
 import history from './history';
-import { reducer } from './reducer';
+import { rootReducer } from './reducer';
 
 const { createReduxHistory, routerMiddleware } = createReduxHistoryContext({
   history,
@@ -12,11 +12,9 @@ const { createReduxHistory, routerMiddleware } = createReduxHistoryContext({
 const customMiddlewares = [logger, routerMiddleware];
 
 export const store = configureStore({
-  reducer,
+  reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(customMiddlewares),
 });
 
 export const reduxHistory = createReduxHistory(store);
-
-export type RootState = ReturnType<typeof store.getState>;

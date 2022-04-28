@@ -1,24 +1,26 @@
 import React from 'react';
 import SVG from 'react-inlinesvg';
 import cn from 'classnames';
+import { NavLink } from 'react-router-dom';
+
+import { User } from '@core/types/user';
 
 import { Avatar } from '../Avatar';
 
 import s from './Profile.module.scss';
-import { NavLink } from 'react-router-dom';
 
 interface ProfileProps {
+  user: User;
   className?: string;
-  name?: string;
 }
 
-export const Profile = ({ name, className }: ProfileProps) => {
+export const Profile = ({ user, className }: ProfileProps) => {
   return (
     <div className={cn(s.root, className)}>
       <div className={s.headerProfile}>
-        <Avatar gender="female" />
+        <Avatar gender={user.gender} />
         <span className={s.prefix}>Hey,</span>
-        <span className={s.name}>{name}</span>
+        <span className={s.name}>{user.name}</span>
         <SVG className={s.arrowIcon} src="icons/arrow-down.svg" />
       </div>
 
