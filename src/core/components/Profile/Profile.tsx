@@ -32,7 +32,7 @@ export const Profile = ({ name, className }: ProfileProps) => {
         <div className={s.dropdownItem}>
           <NavLink to="/logout">
             <SVG src="icons/logout.svg" width={20} height={20} />
-            Logout
+            Log out
           </NavLink>
         </div>
       </div>
