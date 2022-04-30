@@ -1,7 +1,9 @@
 import React from 'react';
 import cn from 'classnames';
+import { useDispatch } from 'react-redux';
 
 import { Task } from '@core/types/task';
+import { taskActions } from '@core/store/task/taskSlice';
 
 import s from './TaskItem.module.scss';
 
@@ -10,8 +12,11 @@ interface TaskProps {
 }
 
 export const TaskItem = ({ task }: TaskProps) => {
+  const dispatch = useDispatch();
+
   const handleClick = () => {
-    console.log(`push to /task/${task.id}`);
+    console.log('taskActions', taskActions);
+    dispatch(taskActions.setTask(task));
   };
 
   return (
