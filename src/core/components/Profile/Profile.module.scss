@@ -1,17 +1,18 @@
+$border-color: #99a9c445;
+
 .root {
   position: relative;
 
-  width: 100%;
-  max-width: 220px;
+  width: 210px;
 }
 
 .headerProfile {
   display: flex;
   align-items: center;
-  padding: 10px 12px;
+  padding: 6px 12px;
 
-  border: 1px solid #eee;
-  border-radius: 10px;
+  border: 1px solid $border-color;
+  border-radius: 8px;
 }
 
 .prefix {
@@ -20,7 +21,6 @@
 }
 
 .name {
-  width: 100%;
   max-width: 90px;
   overflow: hidden;
 
@@ -38,14 +38,16 @@
   width: 100%;
 
   background-color: #fff;
-  border: 1px solid #eee;
+  border: 1px solid $border-color;
+
   border-top: 0;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
   opacity: 0;
   pointer-events: none;
 
-  transform: translateY(41px);
+  transform: translateY(35px);
+  box-shadow: 0 3px 4px rgb(0 0 0 / 10%);
   transition: all linear 0.2s;
 }
 
@@ -100,7 +102,7 @@
     opacity: 1;
     pointer-events: all;
 
-    transform: translateY(46px);
+    transform: translateY(37px);
   }
 
   .arrowIcon {
