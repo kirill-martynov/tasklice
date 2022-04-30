@@ -20,7 +20,7 @@ export const Profile = ({ user, className }: ProfileProps) => {
       <div className={s.headerProfile}>
         <Avatar gender={user.gender} />
         <span className={s.prefix}>Hey,</span>
-        <span className={s.name}>{user.name}</span>
+        <span className={s.name}>{user.firstName}</span>
         <SVG className={s.arrowIcon} src="icons/arrow-down.svg" />
       </div>
 
@@ -31,6 +31,7 @@ export const Profile = ({ user, className }: ProfileProps) => {
             Settings
           </NavLink>
         </div>
+
         <div className={s.dropdownItem}>
           <NavLink to="/logout">
             <SVG src="icons/logout.svg" width={20} height={20} />

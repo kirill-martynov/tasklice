@@ -1,17 +1,42 @@
-.root {
-  padding-right: 30px;
-  padding-left: 30px;
-}
+$border-color: #99a9c445;
+
+// .root {
+//   padding-right: 30px;
+//   padding-left: 30px;
+// }
 
 .content {
   display: flex;
   align-items: center;
   padding-top: 20px;
+  padding-right: 30px;
   padding-bottom: 20px;
+  padding-left: 30px;
 
-  border-bottom: 2px solid var(--secondary-color);
+  border-bottom: 1px solid $border-color;
 }
 
-.headerProfile {
+.right {
+  display: flex;
   margin-left: auto;
+}
+
+.addButton {
+  min-width: initial;
+  margin-right: 20px;
+
+  color: var(--primary-color);
+  font-size: 14px;
+  font-weight: 500;
+
+  background: initial;
+  border-color: $border-color;
+
+  svg {
+    margin-right: 4px;
+  }
+
+  path {
+    fill: var(--primary-color);
+  }
 }
