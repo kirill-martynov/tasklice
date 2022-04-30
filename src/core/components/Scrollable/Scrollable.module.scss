@@ -9,14 +9,14 @@
   }
 
   &::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    // background: #f1f1f1;
     border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb {
     min-height: 200px;
 
-    background-color: var(--primary-color);
+    background-color: var(--thirdly-color);
     border-radius: 10px;
   }
 }

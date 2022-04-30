@@ -13,7 +13,7 @@ $border-color: #99a9c445;
   padding-bottom: 20px;
   padding-left: 30px;
 
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid var(--thirdly-color);
 }
 
 .right {
@@ -30,7 +30,7 @@ $border-color: #99a9c445;
   font-weight: 500;
 
   background: initial;
-  border-color: $border-color;
+  border-color: var(--thirdly-color);
 
   svg {
     margin-right: 4px;

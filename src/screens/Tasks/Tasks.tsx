@@ -6,6 +6,7 @@ import { Task } from '@core/types/task';
 import { Title } from '@core/components/Title';
 import { ScrollableWrapper } from '@core/components/Scrollable';
 import { TaskItem } from '@core/components/TaskItem';
+import { TaskModal } from '@core/components/TaskModal';
 
 import s from './Tasks.module.scss';
 
@@ -21,6 +22,7 @@ export const Tasks = () => {
           ))}
         </div>
       </ScrollableWrapper>
+      <TaskModal />
     </div>
   );
 };

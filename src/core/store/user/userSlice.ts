@@ -22,4 +22,4 @@ const userSlice = createSlice({
   reducers: {},
 });
 
-export const { reducer } = userSlice;
+export const { reducer: userReducer } = userSlice;

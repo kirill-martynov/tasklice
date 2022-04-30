@@ -3,17 +3,23 @@ import { useSelector } from 'react-redux';
 import SVG from 'react-inlinesvg';
 
 import { getUserSelector } from '@core/store/user/userSelectors';
-import { Button } from '../Button';
+import { useModal } from '@core/hooks/useModal';
 
+import { Button } from '../Button';
+import { Modal } from '../Modal';
 import { Profile } from '../Profile';
 
 import s from './Header.module.scss';
 
 export const Header = () => {
+  const { isShowing, toggleModal } = useModal();
+
   const user = useSelector(getUserSelector);
 
   const handleAdd = () => {
     console.log('handleAdd');
+
+    toggleModal();
   };
 
   return (
@@ -27,6 +33,8 @@ export const Header = () => {
           <Profile user={user} className={s.headerProfile} />
         </div>
       </div>
+
+      <Modal isShowing={isShowing}>hello</Modal>
     </div>
   );
 };
