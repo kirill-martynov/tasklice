@@ -7,7 +7,7 @@
   width: 100vw;
   height: 100vh;
 
-  background-color: rgb(0 0 0 / 50%);
+  background-color: rgb(52 64 84 / 70%);
 }
 
 .wrapper {
@@ -35,6 +35,9 @@
   background: white;
   border-radius: 8px;
 
+  box-shadow: 0 20px 24px -4px rgb(16 24 40 / 8%),
+    0 8px 8px -4px rgb(16 24 40 / 3%);
+
   transition: opacity 300ms, transform 300ms;
 }
 
@@ -51,6 +54,10 @@
 
   &:hover {
     opacity: 0.5;
+  }
+
+  svg path {
+    fill: var(--gray-500);
   }
 }
 
