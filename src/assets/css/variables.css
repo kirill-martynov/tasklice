@@ -2,5 +2,18 @@
   --primary-color: #3284ff;
   --secondary-color: #f5f7f9;
   --thirdly-color: #99a9c445;
-  --text-color: #333;
+
+  /* Colors  */
+  --gray-100: #f2f4f7;
+  --gray-200: #eaecf0;
+  --gray-300: #d0d5dd;
+  --gray-400: #98a2b3;
+  --gray-500: #667085;
+  --gray-600: #475467;
+  --gray-700: #344054;
+  --gray-800: #1d2939;
+  --gray-900: #101828;
+
+  /* UI */
+  --text-color: var(--gray-900);
 }
