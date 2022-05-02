@@ -32,6 +32,23 @@ export const TaskModal = () => {
       {hasTask && (
         <div className={s.root}>
           <div className={s.header}>
+            <div className={s.statusWrapper}>
+              <div className={s.statuses}>
+                <span>
+                  <Svg src="icons/checkmark.svg" width={12} height={12} />
+                  todo
+                </span>
+                <span>
+                  <Svg src="icons/checkmark.svg" width={12} height={12} />
+                  in progress
+                </span>
+                <span className={s.active}>
+                  <Svg src="icons/progress.svg" width={12} height={12} />
+                  in review
+                </span>
+                <span>done</span>
+              </div>
+            </div>
             <div className={s.titleWrapper}>
               <div className={s.titleLabel}>
                 <Svg src="icons/envelope.svg" width={18} height={18} />
@@ -56,17 +73,32 @@ export const TaskModal = () => {
 
               <div className={s.option}>
                 <span className={s.optionLabel}>Priority</span>
-                <div className={s.optionValue}>{task.priority}</div>
+                <div
+                  className={cn(s.optionValue, s.priority, s[task.priority])}
+                >
+                  <Svg
+                    src={`icons/priority-${task.priority}.svg`}
+                    width={16}
+                    height={16}
+                    className={s.priorityIcon}
+                  />
+                  {task.priority}
+                </div>
               </div>
 
               <div className={s.option}>
                 <span className={s.optionLabel}>Type</span>
-                <div className={s.optionValue}>{task.type}</div>
+                <div className={cn(s.optionValue, s.type, s[task.type])}>
+                  {task.type}
+                </div>
               </div>
 
               <div className={s.option}>
                 <span className={s.optionLabel}>Due Date</span>
-                <div className={s.optionValue}>May 14, 2022</div>
+                <div className={cn(s.optionValue, s.estimate)}>
+                  <Svg src={`icons/clock.svg`} width={14} height={14} />
+                  May 14, 2022
+                </div>
               </div>
             </div>
           </div>
@@ -83,14 +115,25 @@ export const TaskModal = () => {
             <div className={s.attachmentsWrapper}>
               <div className={s.attachmentsHeader}>
                 <span>
-                  <Svg src="icons/attachment.svg" width={18} height={18} />
+                  <Svg
+                    src="icons/attachment.svg"
+                    width={18}
+                    height={18}
+                    className={s.attachmentIcon}
+                  />
                   Attachments
                 </span>
                 <button>
-                  <Svg src="icons/plus.svg" width={18} height={18} />
+                  <Svg
+                    src="icons/plus.svg"
+                    width={16}
+                    height={16}
+                    className={s.attachmentIcon}
+                  />
                   Add an attachment
                 </button>
               </div>
+              <div className={s.attachments}>Drop files here</div>
             </div>
           </div>
         </div>

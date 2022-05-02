@@ -4,15 +4,17 @@
   padding: 16px;
   margin-bottom: 20px;
 
-  border: 1px solid #eee;
-  border-radius: 10px;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
 
   transition: box-shadow linear 0.3s;
 
   &:hover {
     cursor: pointer;
 
-    box-shadow: 0 6px 9px 1px rgb(0 0 0 / 10%);
+    // box-shadow: 0 6px 9px 1px rgb(0 0 0 / 10%);
+    box-shadow: 0 20px 24px -4px rgb(16 24 40 / 8%),
+      0 8px 8px -4px rgb(16 24 40 / 3%);
   }
 
   &:last-child {
@@ -27,41 +29,37 @@
   font-size: 14px;
 }
 
-.name,
-.description {
+.nameWrapper {
+  width: 100%;
+  max-width: 150px;
+  padding-right: 4px;
+  margin-right: 15px;
+}
+
+.name {
   overflow: hidden;
+
+  font-weight: 500;
 
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.nameWrapper {
-  width: 100%;
-  max-width: 100px;
-  margin-right: 0;
-}
-
-.name {
-  font-weight: 500;
-}
-
-.descriptionWrapper {
-  width: 100%;
-  max-width: 160px;
-}
-
-.description {
-  opacity: 0.5;
-}
-
 .priorityWrapper {
-  min-width: 60px;
+  width: 65px;
+
+  svg path {
+    fill: #fff;
+  }
 }
 
 .priority {
-  width: 100%;
-  padding: 4px 10px;
+  display: flex;
+  align-items: center;
+  height: 20px;
+  padding: 4px 6px 4px 2px;
 
+  color: #fff;
   font-size: 10px;
   font-weight: 600;
   text-align: center;
@@ -70,17 +68,19 @@
   border-radius: 4px;
 
   &.low {
-    background-color: #4bdafc;
+    background-color: #12b76a;
   }
 
   &.normal {
-    background-color: #fda820;
+    background-color: #fdb022;
+
+    svg {
+      transform: rotate(90deg);
+    }
   }
 
   &.high {
-    color: #fff;
-
-    background-color: #9f47e1;
+    background-color: #f04438;
   }
 }
 
@@ -91,6 +91,7 @@
 }
 
 .type {
+  height: 20px;
   padding: 4px 10px;
 
   color: #fff;
@@ -101,15 +102,27 @@
 
   border-radius: 4px;
 
+  &.task {
+    color: var(--task-text);
+
+    background-color: var(--task-bg);
+  }
+
   &.bug {
-    background-color: #f41d2f;
+    color: var(--bug-text);
+
+    background-color: var(--bug-bg);
   }
 
   &.feature {
-    background-color: #2b80b9;
+    color: var(--feature-text);
+
+    background-color: var(--feature-bg);
   }
 
   &.improvement {
-    background-color: #26ae61;
+    color: var(--improvement-text);
+
+    background-color: var(--improvement-bg);
   }
 }

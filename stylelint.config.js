@@ -1,3 +1,5 @@
+const { warn } = require('console');
+
 module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
   plugins: ['stylelint-order', 'stylelint-scss'],
@@ -8,6 +10,7 @@ module.exports = {
     'scss/at-rule-no-unknown': true,
     'declaration-empty-line-before': null,
     'declaration-block-no-redundant-longhand-properties': null,
+    'no-descending-specificity': null,
     'order/properties-order': [
       {
         groupName: 'pseudo',

@@ -26,7 +26,7 @@ export const Header = () => {
     <div className={s.root}>
       <div className={s.content}>
         <div className={s.right}>
-          <Button className={s.addButton} onClick={handleAdd}>
+          <Button theme="secondary" className={s.addButton} onClick={handleAdd}>
             <SVG src="icons/plus.svg" width={16} height={16} />
             Add
           </Button>
@@ -34,7 +34,9 @@ export const Header = () => {
         </div>
       </div>
 
-      <Modal isShowing={isShowing}>hello</Modal>
+      <Modal isShowing={isShowing} onClose={toggleModal}>
+        hello
+      </Modal>
     </div>
   );
 };

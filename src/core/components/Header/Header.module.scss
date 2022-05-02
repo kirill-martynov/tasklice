@@ -18,18 +18,17 @@
   min-width: initial;
   margin-right: 20px;
 
-  color: var(--primary-color);
+  color: var(--gray-600);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
 
-  background: initial;
-  border-color: var(--gray-200);
+  border-style: dashed;
 
   svg {
     margin-right: 4px;
   }
 
-  path {
-    fill: var(--primary-color);
+  svg path {
+    fill: var(--gray-600);
   }
 }
