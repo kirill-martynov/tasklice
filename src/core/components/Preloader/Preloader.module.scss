@@ -7,7 +7,7 @@ $line-duration: 1s;
   left: 0;
   z-index: 1;
 
-  width: calc(100% - 60px);
+  width: 100%;
   height: 6px;
   margin: 0 auto;
 
@@ -26,8 +26,8 @@ $line-duration: 1s;
 
     background-image: repeating-linear-gradient(
       -45deg,
-      #ccc,
-      #ccc 5px,
+      var(--gray-400),
+      var(--gray-400) 5px,
       transparent 5px,
       transparent 10px
     );

@@ -6,6 +6,7 @@ import { Task } from '@core/types/task';
 import { taskActions } from '@core/store/task/taskSlice';
 
 import s from './TaskItem.module.scss';
+import { Svg } from '../Svg';
 
 interface TaskProps {
   task: Task;
@@ -23,16 +24,18 @@ export const TaskItem = ({ task }: TaskProps) => {
     <div className={s.root} onClick={handleClick}>
       <div className={cn(s.wrapper, s.priorityWrapper)}>
         <span className={cn(s.priority, s[task.priority])}>
+          <Svg
+            src={`icons/priority-${task.priority}.svg`}
+            width={18}
+            height={18}
+            className={s.priorityIcon}
+          />
           {task.priority}
         </span>
       </div>
 
       <div className={cn(s.wrapper, s.nameWrapper)}>
-        <span className={s.name}>{task.name}:</span>
-      </div>
-
-      <div className={cn(s.wrapper, s.descriptionWrapper)}>
-        <span className={s.description}>{task.description}</span>
+        <span className={s.name}>{task.name}</span>
       </div>
 
       <div className={cn(s.wrapper, s.typeWrapper)}>

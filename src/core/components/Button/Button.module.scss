@@ -6,11 +6,10 @@
   padding: 6px 12px;
 
   color: #fff;
-  font-family: inherit;
   font-size: 16px;
   line-height: inherit;
 
-  background-color: var(--primary-color);
+  background-color: var(--primary-500);
   border: 1px solid transparent;
   border-radius: 8px;
   cursor: pointer;
@@ -23,10 +22,10 @@
 }
 
 .secondary {
-  color: #99a9c4;
+  color: var(--gray-700);
 
   background-color: initial;
-  border-color: #eee;
+  border-color: var(--gray-300);
 }
 
 .primary {

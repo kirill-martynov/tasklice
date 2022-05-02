@@ -4,6 +4,23 @@
   --thirdly-color: #99a9c445;
 
   /* Colors  */
+
+  /* Primary */
+  --primary-25: #f5faff;
+  --primary-50: #eff8ff;
+  --primary-100: #d1e9ff;
+  --primary-200: #b2ddff;
+  --primary-300: #84caff;
+  --primary-400: #53b1fd;
+  --primary-500: #2e90fa;
+  --primary-600: #1570ef;
+  --primary-700: #175cd3;
+  --primary-800: #1849a9;
+  --primary-900: #194185;
+
+  /* Gray */
+  --gray-25: #fcfcfd;
+  --gray-50: #f9fafb;
   --gray-100: #f2f4f7;
   --gray-200: #eaecf0;
   --gray-300: #d0d5dd;
@@ -13,6 +30,16 @@
   --gray-700: #344054;
   --gray-800: #1d2939;
   --gray-900: #101828;
+
+  /* Badges */
+  --task-bg: #f2f4f7;
+  --task-text: #344054;
+  --bug-bg: #fee4e2;
+  --bug-text: #b42318;
+  --feature-bg: #eff8ff;
+  --feature-text: #175cd3;
+  --improvement-bg: #ecfdf3;
+  --improvement-text: #027a48;
 
   /* UI */
   --text-color: var(--gray-900);
