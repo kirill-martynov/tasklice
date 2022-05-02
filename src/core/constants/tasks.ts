@@ -4,7 +4,7 @@ export const TASKS: Task[] = [
   {
     id: 1,
     name: 'Task Editor',
-    description: 'Build task editor',
+    description: `### Build task editor\n - Task name input - Description textarea`,
     files: [],
     priority: 'normal',
     type: 'feature',
