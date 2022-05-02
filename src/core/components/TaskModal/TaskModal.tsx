@@ -1,6 +1,8 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { isEmpty } from 'lodash';
+import ReactMarkdown from 'react-markdown';
 import cn from 'classnames';
 
 import { taskActions } from '@core/store/task/taskSlice';
@@ -19,11 +21,18 @@ const PARTICIPANTS = [
 
 export const TaskModal = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const task = useSelector(getTaskSelector);
   const hasTask = !isEmpty(task);
 
   const handleClose = () => {
+    dispatch(taskActions.clearTask());
+  };
+
+  const handleClick = () => {
+    navigate(`/edit/${task.id}`);
+
     dispatch(taskActions.clearTask());
   };
 
@@ -54,7 +63,9 @@ export const TaskModal = () => {
                 <Svg src="icons/envelope.svg" width={18} height={18} />
                 <span>Task Name</span>
               </div>
-              <h3 className={s.title}>{task.name}</h3>
+              <h3 className={s.title} onClick={handleClick}>
+                {task.name}
+              </h3>
             </div>
             <div className={s.options}>
               <div className={s.option}>
@@ -109,7 +120,9 @@ export const TaskModal = () => {
                 <Svg src="icons/text.svg" width={18} height={18} />
                 <span>Description</span>
               </div>
-              <p className={s.description}>{task.description}</p>
+              <div className={s.description}>
+                <ReactMarkdown children={task.description} />
+              </div>
             </div>
 
             <div className={s.attachmentsWrapper}>
