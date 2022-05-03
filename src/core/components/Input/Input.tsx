@@ -6,9 +6,9 @@ import { Svg } from '../Svg';
 
 interface InputProps {
   name: string;
-  label: string;
   value: any;
 
+  label?: string;
   className?: string;
   classNames?: {
     label?: string;
@@ -17,7 +17,7 @@ interface InputProps {
   };
   placeholder?: string;
   type?: 'text' | 'email' | 'password';
-  autocomplete?: 'on' | 'off';
+  autoComplete?: 'on' | 'off';
   icon?: {
     name?: string;
     width?: number;
@@ -34,7 +34,8 @@ export const Input = ({
   classNames,
   placeholder,
   type = 'text',
-  icon,
+  autoComplete = 'off',
+  icon = {},
   onChange,
 }: InputProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,11 +44,13 @@ export const Input = ({
     onChange(name, value);
   };
 
-  const hasIcon = Boolean(Object.keys(icon).length);
+  const hasIcon = Boolean(Object.keys(icon)?.length);
 
   return (
     <div className={cn(s.root, className)}>
-      <label className={cn(s.label, classNames?.label)}>{label}</label>
+      {label && (
+        <label className={cn(s.label, classNames?.label)}>{label}</label>
+      )}
       <div>
         {hasIcon && (
           <Svg
@@ -65,6 +68,7 @@ export const Input = ({
           name={name}
           value={value}
           placeholder={placeholder}
+          autoComplete={autoComplete}
           onChange={handleChange}
         />
       </div>

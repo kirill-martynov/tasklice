@@ -3,10 +3,11 @@ import cn from 'classnames';
 import { useDispatch } from 'react-redux';
 
 import { Task } from '@core/types/task';
-import { taskActions } from '@core/store/task/taskSlice';
+import { Svg } from '@core/components/Svg';
+
+import { taskViewActions } from '@tasks/store/task/taskView/taskViewSlice';
 
 import s from './TaskItem.module.scss';
-import { Svg } from '../Svg';
 
 interface TaskProps {
   task: Task;
@@ -16,8 +17,7 @@ export const TaskItem = ({ task }: TaskProps) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    console.log('taskActions', taskActions);
-    dispatch(taskActions.setTask(task));
+    dispatch(taskViewActions.setTask(task));
   };
 
   return (

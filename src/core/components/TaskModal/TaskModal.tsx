@@ -5,8 +5,8 @@ import { isEmpty } from 'lodash';
 import ReactMarkdown from 'react-markdown';
 import cn from 'classnames';
 
-import { taskActions } from '@core/store/task/taskSlice';
-import { getTaskSelector } from '@core/store/task/taskSelectors';
+import { taskViewActions } from '@tasks/store/task/taskView/taskViewSlice';
+import { getTaskSelector } from '@tasks/store/task/taskView/taskViewSelectors';
 import { getStatusesSelector } from '@core/store/statuses/statusesSelectors';
 
 import { Modal } from '../Modal';
@@ -36,13 +36,13 @@ export const TaskModal = () => {
   const hasTask = !isEmpty(task);
 
   const handleClose = () => {
-    dispatch(taskActions.clearTask());
+    dispatch(taskViewActions.clearTask());
   };
 
   const handleClick = () => {
-    navigate(`/edit/${task.id}`);
+    // navigate(`/edit/${task.id}`);
 
-    dispatch(taskActions.clearTask());
+    dispatch(taskViewActions.clearTask());
   };
 
   return (

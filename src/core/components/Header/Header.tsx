@@ -1,21 +1,26 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { useModal } from '@core/hooks/useModal';
 import { getUserSelector } from '@core/store/user/userSelectors';
 
 import { Button } from '../Button';
 import { Profile } from '../Profile';
 import { Svg } from '../Svg';
 
+import { taskEditorActions } from '@tasks/store/task/taskEditor/taskEditorSlice';
+import { TaskEditorModal } from '@tasks/components/TaskEditorModal';
+
 import s from './Header.module.scss';
 
 export const Header = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const user = useSelector(getUserSelector);
 
   const handleAdd = () => {
-    navigate('/create');
+    dispatch(taskEditorActions.toggleEditor());
   };
 
   return (
@@ -27,6 +32,8 @@ export const Header = () => {
             Add
           </Button>
           <Profile user={user} className={s.headerProfile} />
+
+          <TaskEditorModal />
         </div>
       </div>
     </div>
