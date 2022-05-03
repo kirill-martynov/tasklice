@@ -1,25 +1,21 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import SVG from 'react-inlinesvg';
+import { useNavigate } from 'react-router-dom';
 
 import { getUserSelector } from '@core/store/user/userSelectors';
-import { useModal } from '@core/hooks/useModal';
 
 import { Button } from '../Button';
-import { Modal } from '../Modal';
 import { Profile } from '../Profile';
+import { Svg } from '../Svg';
 
 import s from './Header.module.scss';
 
 export const Header = () => {
-  const { isShowing, toggleModal } = useModal();
-
+  const navigate = useNavigate();
   const user = useSelector(getUserSelector);
 
   const handleAdd = () => {
-    console.log('handleAdd');
-
-    toggleModal();
+    navigate('/create');
   };
 
   return (
@@ -27,16 +23,12 @@ export const Header = () => {
       <div className={s.content}>
         <div className={s.right}>
           <Button theme="secondary" className={s.addButton} onClick={handleAdd}>
-            <SVG src="icons/plus.svg" width={16} height={16} />
+            <Svg src="icons/plus.svg" width={16} height={16} />
             Add
           </Button>
           <Profile user={user} className={s.headerProfile} />
         </div>
       </div>
-
-      <Modal isShowing={isShowing} onClose={toggleModal}>
-        hello
-      </Modal>
     </div>
   );
 };

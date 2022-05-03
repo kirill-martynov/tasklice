@@ -12,7 +12,7 @@ const ROUTES = [
   { element: React.lazy(() => import('@screens/Tasks')), path: '/tasks' },
   { element: React.lazy(() => import('@screens/Board')), path: '/board' },
   { element: React.lazy(() => import('@screens/Settings')), path: '/settings' },
-  { element: React.lazy(() => import('@screens/TaskEditor')), path: '/create' },
+  { element: React.lazy(() => import('@screens/CreateTask')), path: '/create' },
   {
     element: React.lazy(() => import('@screens/TaskEditor')),
     path: '/edit/:id',
