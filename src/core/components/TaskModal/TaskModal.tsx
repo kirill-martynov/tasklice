@@ -7,6 +7,7 @@ import cn from 'classnames';
 
 import { taskActions } from '@core/store/task/taskSlice';
 import { getTaskSelector } from '@core/store/task/taskSelectors';
+import { getStatusesSelector } from '@core/store/statuses/statusesSelectors';
 
 import { Modal } from '../Modal';
 import { Svg } from '../Svg';
@@ -19,10 +20,18 @@ const PARTICIPANTS = [
   { id: 3, gender: 'female', avatar: '1' },
 ];
 
+const STATUSES_PRIORITY: { [key: string]: number } = {
+  todo: 1,
+  'in progress': 2,
+  'in review': 3,
+  done: 4,
+};
+
 export const TaskModal = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const statuses = useSelector(getStatusesSelector);
   const task = useSelector(getTaskSelector);
   const hasTask = !isEmpty(task);
 
@@ -43,19 +52,22 @@ export const TaskModal = () => {
           <div className={s.header}>
             <div className={s.statusWrapper}>
               <div className={s.statuses}>
-                <span>
-                  <Svg src="icons/checkmark.svg" width={12} height={12} />
-                  todo
-                </span>
-                <span>
-                  <Svg src="icons/checkmark.svg" width={12} height={12} />
-                  in progress
-                </span>
-                <span className={s.active}>
-                  <Svg src="icons/progress.svg" width={12} height={12} />
-                  in review
-                </span>
-                <span>done</span>
+                {statuses.map((status: string) => (
+                  <span
+                    key={`TASK-MODAL-${status}`}
+                    className={cn(s.status, {
+                      [s.active]:
+                        STATUSES_PRIORITY[status] ===
+                        STATUSES_PRIORITY[task.status],
+                    })}
+                  >
+                    {STATUSES_PRIORITY[status] <
+                      STATUSES_PRIORITY[task.status] && (
+                      <Svg src="icons/checkmark.svg" width={12} height={12} />
+                    )}
+                    {status}
+                  </span>
+                ))}
               </div>
             </div>
             <div className={s.titleWrapper}>
