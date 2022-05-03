@@ -29,7 +29,7 @@
   font-size: 12px;
   font-weight: 600;
 
-  span {
+  .status {
     position: relative;
     z-index: 1;
 
@@ -74,7 +74,7 @@
     }
   }
 
-  & span:not(& .active ~ span) {
+  & .status:not(& .active ~ .status) {
     background-image: repeating-linear-gradient(
       -45deg,
       var(--gray-50),
@@ -83,20 +83,11 @@
       transparent 10px
     );
     background-size: 28px 100%;
-    // border-color: #32d583;
-
-    // &::after {
-    //   background-color: #32d583;
-    // }
   }
 
   & span.active {
     background-image: initial !important;
     border-color: var(--primary-300) !important;
-
-    // &::after {
-    //   background-color: var(--primary-500) !important;
-    // }
   }
 }
 
