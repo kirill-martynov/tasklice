@@ -4,16 +4,18 @@ import { createReduxHistoryContext } from 'redux-first-history';
 import history from './history';
 
 import { userReducer } from '@core/store/user/userSlice';
-import { taskReducer } from '@core/store/task/taskSlice';
 import { statusesReducer } from '@core/store/statuses/statusesSlice';
+import { taskReducer } from '@tasks/store/task/taskReducer';
+import { tasksReducer } from '@tasks/store/tasks/tasksSlice';
 
 const { routerReducer } = createReduxHistoryContext({ history });
 
 export const rootReducer = combineReducers({
   router: routerReducer,
   user: userReducer,
-  task: taskReducer,
   statuses: statusesReducer,
+  task: taskReducer,
+  tasks: tasksReducer,
 });
 
 export type TRootState = ReturnType<typeof rootReducer>;

@@ -5,14 +5,15 @@ import s from './Textarea.module.scss';
 
 interface TextareaProps {
   name: string;
-  label: string;
   value: any;
 
+  label?: string;
   className?: string;
   classNames?: {
     label?: string;
     textarea?: string;
   };
+  placeholder?: string;
 
   onChange: (name: string, value: any) => void;
 }
@@ -22,6 +23,7 @@ export const Textarea = ({
   value,
   className,
   classNames,
+  placeholder,
   onChange,
 }: TextareaProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -31,11 +33,14 @@ export const Textarea = ({
   };
   return (
     <div className={cn(s.root, className)}>
-      <label className={cn(s.label, classNames?.label)}>{label}</label>
+      {label && (
+        <label className={cn(s.label, classNames?.label)}>{label}</label>
+      )}
       <textarea
         className={cn(s.textarea, classNames?.textarea)}
         name={name}
         value={value}
+        placeholder={placeholder}
         onChange={handleChange}
       />
     </div>
