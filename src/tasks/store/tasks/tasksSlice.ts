@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 interface TasksState {
   data: any[];
@@ -18,4 +20,13 @@ const tasksSlice = createSlice({
   },
 });
 
-export const { reducer: tasksReducer, actions: tasksActions } = tasksSlice;
+const tasksPersistConfig = {
+  key: 'tasks',
+  storage,
+};
+
+export const tasksReducer = persistReducer(
+  tasksPersistConfig,
+  tasksSlice.reducer
+);
+export const { actions: tasksActions } = tasksSlice;

@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { HistoryRouter as Router } from 'redux-first-history/rr6';
+import { PersistGate } from 'redux-persist/integration/react';
 
-import { reduxHistory, store } from '@core/redux/store';
+import { persistor, reduxHistory, store } from '@core/redux/store';
 
 import App from './App';
 
@@ -16,8 +17,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <Provider store={store}>
-    <Router history={reduxHistory}>
-      <App />
-    </Router>
+    <PersistGate loading={null} persistor={persistor}>
+      <Router history={reduxHistory}>
+        <App />
+      </Router>
+    </PersistGate>
   </Provider>
 );
