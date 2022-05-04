@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import cn from 'classnames';
 
 import { Input } from '@core/components/Input';
@@ -31,7 +32,12 @@ export const TaskEditor = () => {
   };
 
   const handleCreate = () => {
-    dispatch(tasksActions.addTask(formData));
+    const task = {
+      id: uuidv4(),
+      ...formData,
+    };
+
+    dispatch(tasksActions.addTask(task));
     dispatch(taskEditorActions.toggleEditor());
   };
 
