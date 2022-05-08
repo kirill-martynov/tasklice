@@ -1,5 +1,3 @@
-const { warn } = require('console');
-
 module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
   plugins: ['stylelint-order', 'stylelint-scss'],

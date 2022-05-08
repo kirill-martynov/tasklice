@@ -8,6 +8,8 @@ export const Board = () => {
   return (
     <div className={s.root}>
       <Title>Board</Title>
+
+      <div className={s.content}></div>
     </div>
   );
 };
