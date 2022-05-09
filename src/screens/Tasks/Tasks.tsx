@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { TASKS } from '@core/constants/tasks';
 import { Task } from '@core/types/task';
 
 import { Title } from '@core/components/Title';

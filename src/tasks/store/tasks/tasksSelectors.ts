@@ -1,5 +1,4 @@
 import { TRootState } from '@core/redux/reducer';
-import { TASKS } from '@core/constants/tasks';
 
 const tasksStateSelector = (state: TRootState) => state.tasks;
 

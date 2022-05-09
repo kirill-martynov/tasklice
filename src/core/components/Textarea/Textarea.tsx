@@ -5,7 +5,7 @@ import s from './Textarea.module.scss';
 
 interface TextareaProps {
   name: string;
-  value: any;
+  value: string;
 
   label?: string;
   className?: string;
@@ -15,7 +15,7 @@ interface TextareaProps {
   };
   placeholder?: string;
 
-  onChange: (name: string, value: any) => void;
+  onChange: (name: string, value: string) => void;
 }
 export const Textarea = ({
   name,

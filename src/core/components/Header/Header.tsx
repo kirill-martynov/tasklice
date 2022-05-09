@@ -1,8 +1,5 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
-import { useModal } from '@core/hooks/useModal';
 import { getUserSelector } from '@core/store/user/userSelectors';
 
 import { Button } from '../Button';

@@ -6,7 +6,7 @@ import { Svg } from '../Svg';
 
 interface InputProps {
   name: string;
-  value: any;
+  value: string;
 
   label?: string;
   className?: string;
@@ -24,7 +24,7 @@ interface InputProps {
     height?: number;
   };
 
-  onChange: (name: string, value: any) => void;
+  onChange: (name: string, value: string) => void;
 }
 export const Input = ({
   name,

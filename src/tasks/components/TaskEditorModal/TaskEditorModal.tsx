@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Modal } from '@core/components/Modal';
@@ -9,10 +8,6 @@ import { taskEditorActions } from '@tasks/store/task/taskEditor/taskEditorSlice'
 import { TaskEditor } from './components/TaskEditor';
 
 import s from './TaskEditorModal.module.scss';
-
-interface TaskEditorModalProps {
-  isShowing: boolean;
-}
 
 export const TaskEditorModal = () => {
   const dispatch = useDispatch();

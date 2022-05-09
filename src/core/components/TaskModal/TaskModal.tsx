@@ -1,5 +1,3 @@
-import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { isEmpty } from 'lodash';
 import ReactMarkdown from 'react-markdown';
@@ -29,7 +27,6 @@ const STATUSES_PRIORITY: { [key: string]: number } = {
 
 export const TaskModal = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const statuses = useSelector(getStatusesSelector);
   const task = useSelector(getTaskSelector);
@@ -40,8 +37,6 @@ export const TaskModal = () => {
   };
 
   const handleClick = () => {
-    // navigate(`/edit/${task.id}`);
-
     dispatch(taskViewActions.clearTask());
   };
 
