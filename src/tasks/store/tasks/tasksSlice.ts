@@ -2,8 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import { Task } from '@core/types/task';
+
 interface TasksState {
-  data: any[];
+  data: Task[];
 }
 
 const initialState: TasksState = {

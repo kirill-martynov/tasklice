@@ -1,24 +1,30 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import checker from 'vite-plugin-checker';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
-const path = require('path');
+import { aliases } from './vite/aliases';
 
-// https://vitejs.dev/config/
-export default defineConfig((options) => {
-  console.log('options', options);
+export default defineConfig(() => {
   return {
-    resolve: {
-      alias: {
-        '@core': path.resolve(__dirname, 'src/core'),
-        '@tasks': path.resolve(__dirname, 'src/tasks'),
-        '@screens': path.resolve(__dirname, 'src/screens'),
-      },
-    },
+    resolve: { alias: aliases },
+
     css: {
       modules: {
         generateScopedName: '[name]__[local]___[hash:base64:5]',
       },
     },
-    plugins: [react()],
+
+    plugins: [
+      react(),
+      tsconfigPaths(),
+      checker({
+        overlay: true,
+        typescript: false,
+        eslint: {
+          lintCommand: 'eslint "./src/**/*.{ts,tsx}"',
+        },
+      }),
+    ],
   };
 });

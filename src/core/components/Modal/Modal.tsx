@@ -1,4 +1,3 @@
-import { useModal } from '@core/hooks/useModal';
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import SVG from 'react-inlinesvg';
@@ -19,13 +18,8 @@ export const Modal = ({
   isShowing,
   children,
   className,
-  onConfirm,
   onClose,
 }: ModalProps) => {
-  const handleConfirm = () => {
-    onConfirm();
-  };
-
   return ReactDOM.createPortal(
     <CSSTransition
       in={isShowing}
