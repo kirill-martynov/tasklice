@@ -2,14 +2,18 @@ import React from 'react';
 
 import { Title } from '@core/components/Title';
 
+import { BoardColumns } from './components/BoardColumns';
+
 import s from './Board.module.scss';
 
 export const Board = () => {
   return (
     <div className={s.root}>
-      <Title>Board</Title>
+      <Title className={s.title}>Board</Title>
 
-      <div className={s.content}></div>
+      <div className={s.content}>
+        <BoardColumns />
+      </div>
     </div>
   );
 };
