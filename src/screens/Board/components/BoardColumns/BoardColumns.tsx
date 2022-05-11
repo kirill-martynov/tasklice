@@ -1,14 +1,19 @@
+import { useSelector } from 'react-redux';
+
+import { getStatusesSelector } from '@core/store/statuses/statusesSelectors';
+
 import { BoardColumn } from '../BoardColumn/BoardColumn';
 
 import s from './BoardColumns.module.scss';
 
 export const BoardColumns = () => {
+  const statuses = useSelector(getStatusesSelector);
+
   return (
     <div className={s.root}>
-      <BoardColumn title="to do" />
-      <BoardColumn title="in progress" />
-      <BoardColumn title="in review" />
-      <BoardColumn title="done" />
+      {statuses.map((status) => (
+        <BoardColumn key={`BOARD-${status}`} status={status} />
+      ))}
     </div>
   );
 };
