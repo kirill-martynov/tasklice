@@ -1,6 +1,9 @@
 import { Task } from '@core/types/task';
 import { createSlice } from '@reduxjs/toolkit';
 
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 interface StatusesState {
   statuses: string[];
   tasks: {
@@ -24,14 +27,17 @@ const initialState: StatusesState = {
 const statusesSlice = createSlice({
   name: 'statuses',
   initialState,
-  reducers: {
-    addTask: (state, action) => {
-      const { payload } = action;
-
-      state.tasks[payload.task.status].push(payload.task);
-    },
-  },
+  reducers: {},
 });
 
-export const { reducer: statusesReducer, actions: statusesActions } =
-  statusesSlice;
+const statusesPersistConfig = {
+  key: 'stasuses',
+  storage,
+};
+
+export const statusesReducer = persistReducer(
+  statusesPersistConfig,
+  statusesSlice.reducer
+);
+
+export const { actions: statusesActions } = statusesSlice;

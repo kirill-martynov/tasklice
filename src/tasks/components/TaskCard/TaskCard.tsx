@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useDrag } from 'react-dnd';
 import cn from 'classnames';
 
 import { Task } from '@core/types/task';
@@ -11,8 +12,21 @@ interface TaskCardProps {
 }
 
 export const TaskCard = ({ task }: TaskCardProps) => {
+  const [{ isDragging }, drag] = useDrag(() => ({
+    type: 'taskCard',
+    item: { task },
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  }));
+
   return (
-    <div className={s.root}>
+    <div
+      className={cn(s.root, {
+        [s.dragging]: isDragging,
+      })}
+      ref={drag}
+    >
       <div className={s.header}>
         <div className={s.priorityWrapper}>
           <span className={cn(s.priority, s[task.priority])}>
