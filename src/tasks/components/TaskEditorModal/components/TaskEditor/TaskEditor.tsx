@@ -41,6 +41,8 @@ export const TaskEditor = () => {
     dispatch(taskEditorActions.toggleEditor());
   };
 
+  const isButtonDisabled = !formData.name || !formData.description;
+
   return (
     <div className={s.root}>
       <div className={s.header}>
@@ -77,7 +79,9 @@ export const TaskEditor = () => {
       </div>
       <div className={s.footer}>
         <div className={s.actions}>
-          <Button onClick={handleCreate}>Create</Button>
+          <Button onClick={handleCreate} disabled={isButtonDisabled}>
+            Create
+          </Button>
         </div>
       </div>
     </div>

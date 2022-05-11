@@ -9,6 +9,7 @@ interface ButtonProps {
   className?: string;
   type?: 'button' | 'submit' | 'reset';
   theme?: 'primary' | 'secondary';
+  disabled?: boolean;
 
   onClick: () => void;
 }
@@ -17,6 +18,7 @@ export const Button = ({
   className,
   type = 'button',
   theme = 'primary',
+  disabled,
   onClick,
 }: ButtonProps) => {
   const handleClick = () => {
@@ -26,7 +28,9 @@ export const Button = ({
   return (
     <button
       type={type}
-      className={cn(s.root, s[theme], className)}
+      className={cn(s.root, s[theme], className, {
+        [s.disabled]: disabled,
+      })}
       onClick={handleClick}
     >
       {children}
