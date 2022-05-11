@@ -19,6 +19,14 @@ const tasksSlice = createSlice({
     addTask: (state, action) => {
       state.data.push(action.payload);
     },
+    updateTask: (state, action) => {
+      state.data = state.data.map((item) => {
+        if (item.id === action.payload.id) {
+          return { ...item, status: action.payload.status };
+        }
+        return item;
+      });
+    },
   },
 });
 
