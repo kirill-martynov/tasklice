@@ -12,6 +12,7 @@ import { tasksActions } from '@tasks/store/tasks/tasksSlice';
 import { taskEditorActions } from '@tasks/store/task/taskEditor/taskEditorSlice';
 
 import s from './TaskEditor.module.scss';
+import { statusesActions } from '@core/store/statuses/statusesSlice';
 
 export const TaskEditor = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ export const TaskEditor = () => {
     };
 
     dispatch(tasksActions.addTask(task));
+    dispatch(statusesActions.addTask({ task }));
     dispatch(taskEditorActions.toggleEditor());
   };
 
