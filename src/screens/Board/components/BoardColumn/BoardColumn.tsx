@@ -1,8 +1,4 @@
-import {
-  Droppable,
-  DroppableProvided,
-  DroppableStateSnapshot,
-} from 'react-beautiful-dnd';
+import { Droppable, DroppableProvided, DroppableStateSnapshot } from 'react-beautiful-dnd';
 import cn from 'classnames';
 
 import { Task } from '@core/types/task';
@@ -23,7 +19,10 @@ export const BoardColumn = ({ status, tasks }: BoardColumnProps) => {
   return (
     <div className={s.root}>
       <div className={s.header}>
-        <h4 className={s.title}>{title}</h4>
+        <h4 className={s.title}>
+          {title}
+          <span className={s.tasksCounter}>({tasks.length})</span>
+        </h4>
       </div>
       <Droppable droppableId={status} key={status}>
         {(provided: DroppableProvided, snapshot: DroppableStateSnapshot) => (
