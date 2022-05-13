@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import cn from 'classnames';
 
@@ -7,23 +7,20 @@ import { Input } from '@core/components/Input';
 import { Svg } from '@core/components/Svg';
 import { Textarea } from '@core/components/Textarea';
 import { Button } from '@core/components/Button';
+import { statusesActions } from '@core/store/statuses/statusesSlice';
 
 import { tasksActions } from '@tasks/store/tasks/tasksSlice';
 import { taskEditorActions } from '@tasks/store/task/taskEditor/taskEditorSlice';
+import { getTaskEditorDataSelector } from '@tasks/store/task/taskEditor/taskEditorSelectors';
 
 import s from './TaskEditor.module.scss';
-import { statusesActions } from '@core/store/statuses/statusesSlice';
 
 export const TaskEditor = () => {
   const dispatch = useDispatch();
 
-  const [formData, setFormData] = React.useState({
-    name: '',
-    description: '',
-    status: 'todo',
-    type: 'feature',
-    priority: 'normal',
-  });
+  const task = useSelector(getTaskEditorDataSelector);
+
+  const [formData, setFormData] = React.useState<any>(task);
 
   const handleFieldChange = (name: string, value: string) => {
     setFormData({
@@ -32,15 +29,23 @@ export const TaskEditor = () => {
     });
   };
 
-  const handleCreate = () => {
-    const task = {
-      id: uuidv4(),
-      ...formData,
-    };
+  const handleClick = () => {
+    if (formData?.id) {
+      dispatch(tasksActions.updateTask({ item: formData }));
+      dispatch(statusesActions.updateTask({ item: formData }));
+    }
 
-    dispatch(tasksActions.addTask(task));
-    dispatch(statusesActions.addTask({ task }));
-    dispatch(taskEditorActions.toggleEditor());
+    if (!formData?.id) {
+      const item = {
+        id: uuidv4(),
+        ...formData,
+      };
+
+      dispatch(tasksActions.addTask(item));
+      dispatch(statusesActions.addTask({ task: item }));
+    }
+
+    dispatch(taskEditorActions.toggleEditor({}));
   };
 
   const isButtonDisabled = !formData.name || !formData.description;
@@ -81,8 +86,8 @@ export const TaskEditor = () => {
       </div>
       <div className={s.footer}>
         <div className={s.actions}>
-          <Button onClick={handleCreate} disabled={isButtonDisabled}>
-            Create
+          <Button onClick={handleClick} disabled={isButtonDisabled}>
+            {formData?.id ? 'Save' : 'Create'}
           </Button>
         </div>
       </div>

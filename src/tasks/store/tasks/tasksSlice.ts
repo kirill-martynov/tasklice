@@ -19,12 +19,17 @@ const tasksSlice = createSlice({
     addTask: (state, action) => {
       state.data.push(action.payload);
     },
+    removeTask: (state, action) => {
+      state.data = state.data.filter((item) => item.id !== action.payload.id);
+    },
     updateTask: (state, action) => {
-      state.data = state.data.map((item) => {
-        if (item.id === action.payload.id) {
-          return { ...item, status: action.payload.status };
+      const { item } = action.payload;
+
+      state.data = state.data.map((task) => {
+        if (task.id === item.id) {
+          return item;
         }
-        return item;
+        return task;
       });
     },
   },
@@ -35,8 +40,5 @@ const tasksPersistConfig = {
   storage,
 };
 
-export const tasksReducer = persistReducer(
-  tasksPersistConfig,
-  tasksSlice.reducer
-);
+export const tasksReducer = persistReducer(tasksPersistConfig, tasksSlice.reducer);
 export const { actions: tasksActions } = tasksSlice;
