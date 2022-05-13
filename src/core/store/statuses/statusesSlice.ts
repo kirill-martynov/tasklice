@@ -49,6 +49,22 @@ const statusesSlice = createSlice({
 
       state.columns[task.status].items.push(task);
     },
+    updateTask: (state, action) => {
+      const { item } = action.payload;
+
+      const taskIndex = state.columns[item.status].items.findIndex(
+        (task: Task) => task.id === item.id
+      );
+
+      state.columns[item.status].items[taskIndex] = item;
+    },
+    removeTask: (state, action) => {
+      const { id, status } = action.payload;
+
+      state.columns[status].items = state.columns[status].items.filter(
+        (item: Task) => item.id !== id
+      );
+    },
     moveTask: (state, action) => {
       state.columns = action.payload.columns;
     },
@@ -60,9 +76,6 @@ const statusesPersistConfig = {
   storage,
 };
 
-export const statusesReducer = persistReducer(
-  statusesPersistConfig,
-  statusesSlice.reducer
-);
+export const statusesReducer = persistReducer(statusesPersistConfig, statusesSlice.reducer);
 
 export const { actions: statusesActions } = statusesSlice;

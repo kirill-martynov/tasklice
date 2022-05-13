@@ -1,0 +1,140 @@
+.root {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.priorityWrapper {
+  margin-bottom: 15px;
+}
+
+.priority {
+  padding: 4px 6px;
+
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: capitalize;
+
+  border-radius: 4px;
+
+  &.low {
+    background-color: #12b76a;
+  }
+
+  &.normal {
+    background-color: #fdb022;
+
+    svg {
+      transform: rotate(90deg);
+    }
+  }
+
+  &.high {
+    background-color: #f04438;
+  }
+}
+
+.title {
+  color: var(--gray-700);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.buttonWrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  height: 25px;
+}
+
+.button {
+  &.more {
+    padding: 0;
+
+    font-size: 0;
+    line-height: 0;
+
+    background-color: initial;
+
+    border: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+
+    transition: all 0.2s linear;
+
+    svg path {
+      stroke: var(--gray-500);
+    }
+  }
+
+  &.expanded {
+    background-color: var(--gray-25);
+    border-color: var(--gray-100);
+
+    box-shadow: 0 3px 1px rgb(16 24 40 / 10%), 0 1px 2px rgb(16 24 40 / 6%);
+  }
+}
+
+.popper {
+  background: #fff;
+  background-color: var(--gray-25);
+  border: 1px solid transparent;
+
+  border-color: var(--gray-100);
+  border-style: solid;
+  border-top-width: 0;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+
+  box-shadow: 0 3px 1px rgb(16 24 40 / 10%), 0 1px 2px rgb(16 24 40 / 6%);
+
+  transition: all 0.2s linear;
+
+  &.popperShow {
+    opacity: 1;
+    pointer-events: initial;
+  }
+}
+
+.popperContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.popperButton {
+  padding: 8px 5px;
+
+  font-size: 0;
+  line-height: 0;
+
+  background: initial;
+  border: 0;
+
+  cursor: pointer;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  svg path {
+    stroke: var(--gray-500);
+  }
+}

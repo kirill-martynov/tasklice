@@ -11,13 +11,21 @@ import { TaskEditorModal } from '@tasks/components/TaskEditorModal';
 
 import s from './Header.module.scss';
 
+const DEFAULT_FORM_DATA = {
+  name: '',
+  description: '',
+  status: 'todo',
+  type: 'feature',
+  priority: 'normal',
+};
+
 export const Header = () => {
   const dispatch = useDispatch();
 
   const user = useSelector(getUserSelector);
 
   const handleAdd = () => {
-    dispatch(taskEditorActions.toggleEditor());
+    dispatch(taskEditorActions.toggleEditor(DEFAULT_FORM_DATA));
   };
 
   return (

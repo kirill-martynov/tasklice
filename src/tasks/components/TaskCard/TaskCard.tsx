@@ -1,12 +1,11 @@
-import {
-  Draggable,
-  DraggableProvided,
-  DraggableStateSnapshot,
-} from 'react-beautiful-dnd';
+import React from 'react';
+import { Draggable, DraggableProvided, DraggableStateSnapshot } from 'react-beautiful-dnd';
 import cn from 'classnames';
 
 import { Svg } from '@core/components/Svg';
 import { Task } from '@core/types/task';
+
+import { TaskCardHeader } from './components/TaskCardHeader';
 
 import s from './TaskCard.module.scss';
 
@@ -27,17 +26,7 @@ export const TaskCard = ({ task, index }: TaskCardProps) => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <div className={s.header}>
-            <div className={s.priorityWrapper}>
-              <span className={cn(s.priority, s[task.priority])}>
-                {task.priority}
-              </span>
-            </div>
-            <h5 className={s.title}>{task.name}</h5>
-            <button className={cn(s.button, s.more)}>
-              <Svg src="icons/more-horizontal.svg" width={24} height={24} />
-            </button>
-          </div>
+          <TaskCardHeader task={task} />
           <div className={s.content}>
             <div className={s.descriptionWrapper}>
               <p className={s.description}>{task.description}</p>

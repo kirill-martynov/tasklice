@@ -28,19 +28,18 @@ export const BoardColumns = () => {
     const destinationColumn = columns[destination.droppableId];
     const { items: destinationItems } = destinationColumn;
 
-    const currentItem = currentItems.find(
-      (item: Task) => item.id === draggableId
-    );
-    const filteredItems = currentItems.filter(
-      (item: Task) => item.id !== currentItem.id
-    );
+    const currentItem = currentItems.find((item: Task) => item.id === draggableId);
+    const filteredItems = currentItems.filter((item: Task) => item.id !== currentItem.id);
 
     const isSameColumn = source.droppableId === destination.droppableId;
 
     if (!isSameColumn) {
       const destinationColumnItems = [...destinationItems];
 
-      destinationColumnItems.splice(destination.index, 0, currentItem);
+      destinationColumnItems.splice(destination.index, 0, {
+        ...currentItem,
+        status: destination.droppableId,
+      });
 
       data = {
         ...columns,
@@ -52,10 +51,7 @@ export const BoardColumns = () => {
       };
 
       dispatch(
-        tasksActions.updateTask({
-          id: currentItem.id,
-          status: destination.droppableId,
-        })
+        tasksActions.updateTask({ item: { ...currentItem, status: destination.droppableId } })
       );
     }
 
@@ -79,11 +75,7 @@ export const BoardColumns = () => {
     <div className={s.root}>
       <DragDropContext onDragEnd={handleOnDragEnd}>
         {Object.entries(columns).map(([columnName, column]) => (
-          <BoardColumn
-            key={`BOARD-${columnName}`}
-            status={columnName}
-            tasks={column.items}
-          />
+          <BoardColumn key={`BOARD-${columnName}`} status={columnName} tasks={column.items} />
         ))}
       </DragDropContext>
     </div>
