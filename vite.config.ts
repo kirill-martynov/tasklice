@@ -20,7 +20,7 @@ export default defineConfig(() => {
       tsconfigPaths(),
       checker({
         overlay: false,
-        typescript: false,
+        typescript: true,
         eslint: {
           lintCommand: 'eslint "./src/**/*.{ts,tsx}"',
         },
