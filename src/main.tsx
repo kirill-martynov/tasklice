@@ -20,11 +20,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <DndProvider backend={HTML5Backend}>
-        <Router history={reduxHistory}>
+      <Router history={reduxHistory}>
+        <DndProvider backend={HTML5Backend}>
           <App />
-        </Router>
-      </DndProvider>
+        </DndProvider>
+      </Router>
     </PersistGate>
   </Provider>
 );
