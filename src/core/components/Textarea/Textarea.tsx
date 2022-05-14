@@ -33,9 +33,7 @@ export const Textarea = ({
   };
   return (
     <div className={cn(s.root, className)}>
-      {label && (
-        <label className={cn(s.label, classNames?.label)}>{label}</label>
-      )}
+      {label && <label className={cn(s.label, classNames?.label)}>{label}</label>}
       <textarea
         className={cn(s.textarea, classNames?.textarea)}
         name={name}

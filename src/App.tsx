@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router';
 import { Sidebar } from '@core/components/Sidebar';
 import { Header } from '@core/components/Header';
 import { Preloader } from '@core/components/Preloader';
+import { TaskModal } from '@core/components/TaskModal';
 
 import s from './App.module.scss';
 
@@ -27,18 +28,14 @@ function App() {
               {ROUTES.map((route) => {
                 const Screen = route.element;
 
-                return (
-                  <Route
-                    key={route.path}
-                    path={route.path}
-                    element={<Screen />}
-                  />
-                );
+                return <Route key={route.path} path={route.path} element={<Screen />} />;
               })}
             </Routes>
           </React.Suspense>
         </div>
       </main>
+
+      <TaskModal />
     </div>
   );
 }

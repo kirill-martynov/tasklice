@@ -8,6 +8,8 @@ import { Task } from '@core/types/task';
 import { TaskCardHeader } from './components/TaskCardHeader';
 
 import s from './TaskCard.module.scss';
+import { useDispatch } from 'react-redux';
+import { taskViewActions } from '@tasks/store/task/taskView/taskViewSlice';
 
 interface TaskCardProps {
   task: Task;
@@ -15,14 +17,20 @@ interface TaskCardProps {
 }
 
 export const TaskCard = ({ task, index }: TaskCardProps) => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(taskViewActions.setTask(task));
+  };
   return (
     <Draggable draggableId={task.id} index={index} key={task.id}>
       {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
         <div
+          ref={provided.innerRef}
           className={cn(s.root, {
             [s.dragging]: snapshot.isDragging,
           })}
-          ref={provided.innerRef}
+          onClick={handleClick}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
