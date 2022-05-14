@@ -23,5 +23,4 @@ const taskViewSlice = createSlice({
   },
 });
 
-export const { reducer: taskViewReducer, actions: taskViewActions } =
-  taskViewSlice;
+export const { reducer: taskViewReducer, actions: taskViewActions } = taskViewSlice;

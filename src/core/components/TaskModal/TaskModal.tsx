@@ -51,13 +51,10 @@ export const TaskModal = () => {
                   <span
                     key={`TASK-MODAL-${status}`}
                     className={cn(s.status, {
-                      [s.active]:
-                        STATUSES_PRIORITY[status] ===
-                        STATUSES_PRIORITY[task.status],
+                      [s.active]: STATUSES_PRIORITY[status] === STATUSES_PRIORITY[task.status],
                     })}
                   >
-                    {STATUSES_PRIORITY[status] <
-                      STATUSES_PRIORITY[task.status] && (
+                    {STATUSES_PRIORITY[status] < STATUSES_PRIORITY[task.status] && (
                       <Svg src="icons/checkmark.svg" width={12} height={12} />
                     )}
                     {status}
@@ -91,9 +88,7 @@ export const TaskModal = () => {
 
               <div className={s.option}>
                 <span className={s.optionLabel}>Priority</span>
-                <div
-                  className={cn(s.optionValue, s.priority, s[task.priority])}
-                >
+                <div className={cn(s.optionValue, s.priority, s[task.priority])}>
                   <Svg
                     src={`icons/priority-${task.priority}.svg`}
                     width={16}
@@ -106,9 +101,7 @@ export const TaskModal = () => {
 
               <div className={s.option}>
                 <span className={s.optionLabel}>Type</span>
-                <div className={cn(s.optionValue, s.type, s[task.type])}>
-                  {task.type}
-                </div>
+                <div className={cn(s.optionValue, s.type, s[task.type])}>{task.type}</div>
               </div>
 
               <div className={s.option}>
@@ -144,12 +137,7 @@ export const TaskModal = () => {
                   Attachments
                 </span>
                 <button>
-                  <Svg
-                    src="icons/plus.svg"
-                    width={16}
-                    height={16}
-                    className={s.attachmentIcon}
-                  />
+                  <Svg src="icons/plus.svg" width={16} height={16} className={s.attachmentIcon} />
                   Add an attachment
                 </button>
               </div>

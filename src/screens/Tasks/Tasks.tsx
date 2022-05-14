@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { Task } from '@core/types/task';
@@ -6,7 +5,6 @@ import { Task } from '@core/types/task';
 import { Title } from '@core/components/Title';
 import { ScrollableWrapper } from '@core/components/Scrollable';
 import { TaskItem } from '@core/components/TaskItem';
-import { TaskModal } from '@core/components/TaskModal';
 
 import { getTasksDataSelector } from '@tasks/store/tasks/tasksSelectors';
 
@@ -26,7 +24,6 @@ export const Tasks = () => {
           ))}
         </div>
       </ScrollableWrapper>
-      <TaskModal />
     </div>
   );
 };

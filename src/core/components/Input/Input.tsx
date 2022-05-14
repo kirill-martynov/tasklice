@@ -48,9 +48,7 @@ export const Input = ({
 
   return (
     <div className={cn(s.root, className)}>
-      {label && (
-        <label className={cn(s.label, classNames?.label)}>{label}</label>
-      )}
+      {label && <label className={cn(s.label, classNames?.label)}>{label}</label>}
       <div>
         {hasIcon && (
           <Svg

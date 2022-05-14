@@ -126,6 +126,8 @@
 
   cursor: pointer;
 
+  transition: opacity 0.3s linear;
+
   &:last-child {
     margin-bottom: 0;
   }
