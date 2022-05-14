@@ -1,13 +1,15 @@
 import { TRootState } from '@core/redux/reducer';
 
+import { getStatusesColumns } from '@core/store/statuses/statusesSelectors';
+
 const tasksStateSelector = (state: TRootState) => state.tasks;
 
 export const getTasksDataSelector = (state: TRootState) => {
-  const data = tasksStateSelector(state).data;
+  const columns = getStatusesColumns(state);
 
-  if (!data.length) {
-    return [];
-  }
+  const columnKeys = Object.keys(columns);
 
-  return data;
+  return columnKeys.reduce((acc, columnName) => {
+    return [...acc, ...columns[columnName].items];
+  }, []);
 };

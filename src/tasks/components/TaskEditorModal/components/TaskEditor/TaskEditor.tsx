@@ -9,7 +9,6 @@ import { Textarea } from '@core/components/Textarea';
 import { Button } from '@core/components/Button';
 import { statusesActions } from '@core/store/statuses/statusesSlice';
 
-import { tasksActions } from '@tasks/store/tasks/tasksSlice';
 import { taskEditorActions } from '@tasks/store/task/taskEditor/taskEditorSlice';
 import { getTaskEditorDataSelector } from '@tasks/store/task/taskEditor/taskEditorSelectors';
 
@@ -31,7 +30,6 @@ export const TaskEditor = () => {
 
   const handleClick = () => {
     if (formData?.id) {
-      dispatch(tasksActions.updateTask({ item: formData }));
       dispatch(statusesActions.updateTask({ item: formData }));
     }
 
@@ -41,7 +39,6 @@ export const TaskEditor = () => {
         ...formData,
       };
 
-      dispatch(tasksActions.addTask(item));
       dispatch(statusesActions.addTask({ task: item }));
     }
 

@@ -2,13 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 import { getStatusesColumns } from '@core/store/statuses/statusesSelectors';
+import { statusesActions } from '@core/store/statuses/statusesSlice';
 
 import { BoardColumn } from '../BoardColumn/BoardColumn';
 
 import s from './BoardColumns.module.scss';
-import { Task } from '@core/types/task';
-import { statusesActions } from '@core/store/statuses/statusesSlice';
-import { tasksActions } from '@tasks/store/tasks/tasksSlice';
 
 export const BoardColumns = () => {
   const dispatch = useDispatch();
@@ -19,56 +17,15 @@ export const BoardColumns = () => {
     if (!result.destination) {
       return;
     }
+
     const { source, destination, draggableId } = result;
+    const data = {
+      sourceData: { id: source.droppableId, index: source.index },
+      destinationData: { id: destination.droppableId, index: destination.index },
+      id: draggableId,
+    };
 
-    let data = {};
-
-    const currentColumn = columns[source.droppableId];
-    const { items: currentItems } = currentColumn;
-    const destinationColumn = columns[destination.droppableId];
-    const { items: destinationItems } = destinationColumn;
-
-    const currentItem = currentItems.find((item: Task) => item.id === draggableId);
-    const filteredItems = currentItems.filter((item: Task) => item.id !== currentItem.id);
-
-    const isSameColumn = source.droppableId === destination.droppableId;
-
-    if (!isSameColumn) {
-      const destinationColumnItems = [...destinationItems];
-
-      destinationColumnItems.splice(destination.index, 0, {
-        ...currentItem,
-        status: destination.droppableId,
-      });
-
-      data = {
-        ...columns,
-        [source.droppableId]: { ...currentColumn, items: filteredItems },
-        [destination.droppableId]: {
-          ...destinationColumn,
-          items: destinationColumnItems,
-        },
-      };
-
-      dispatch(
-        tasksActions.updateTask({ item: { ...currentItem, status: destination.droppableId } })
-      );
-    }
-
-    if (isSameColumn) {
-      // Place item
-      filteredItems.splice(destination.index, 0, currentItem);
-
-      data = {
-        ...columns,
-        [source.droppableId]: {
-          ...currentColumn,
-          items: filteredItems,
-        },
-      };
-    }
-
-    dispatch(statusesActions.moveTask({ columns: data }));
+    dispatch(statusesActions.moveTask(data));
   };
 
   return (
