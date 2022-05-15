@@ -50,13 +50,15 @@ const statusesSlice = createSlice({
       state.columns[task.status].items.push(task);
     },
     updateTask: (state, action) => {
-      const { item } = action.payload;
+      const { item, prevStatus = null } = action.payload;
 
-      const taskIndex = state.columns[item.status].items.findIndex(
+      const taskStatus = prevStatus || item.status;
+
+      const taskIndex = state.columns[taskStatus].items.findIndex(
         (task: Task) => task.id === item.id
       );
 
-      state.columns[item.status].items[taskIndex] = item;
+      state.columns[taskStatus].items[taskIndex] = item;
     },
     removeTask: (state, action) => {
       const { id, status } = action.payload;
@@ -66,7 +68,40 @@ const statusesSlice = createSlice({
       );
     },
     moveTask: (state, action) => {
-      state.columns = action.payload.columns;
+      const { sourceData, destinationData, id } = action.payload;
+
+      const currentColumn = state.columns[sourceData.id];
+      const destinationColumn = state.columns[destinationData.id];
+
+      const task = currentColumn.items.find((item: Task) => item.id === id);
+      const filteredTasks = currentColumn.items.filter((item: Task) => item.id !== id);
+
+      const isSameColumn = sourceData.id === destinationData.id;
+
+      if (isSameColumn) {
+        filteredTasks.splice(destinationData.index, 0, task);
+
+        state.columns = {
+          ...state.columns,
+          [sourceData.id]: { ...currentColumn, items: filteredTasks },
+        };
+      }
+
+      if (!isSameColumn) {
+        state.columns[destinationData.id].items.splice(destinationData.index, 0, {
+          ...task,
+          status: destinationData.id,
+        });
+
+        state.columns = {
+          ...state.columns,
+          [sourceData.id]: { ...currentColumn, items: filteredTasks },
+          [destinationData.id]: {
+            ...destinationColumn,
+            items: state.columns[destinationData.id].items,
+          },
+        };
+      }
     },
   },
 });

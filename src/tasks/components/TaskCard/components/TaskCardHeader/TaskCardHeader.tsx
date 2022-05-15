@@ -7,7 +7,6 @@ import { Svg } from '@core/components/Svg';
 import { Task } from '@core/types/task';
 import { statusesActions } from '@core/store/statuses/statusesSlice';
 
-import { tasksActions } from '@tasks/store/tasks/tasksSlice';
 import { taskEditorActions } from '@tasks/store/task/taskEditor/taskEditorSlice';
 
 import s from './TaskCardHeader.module.scss';
@@ -30,7 +29,6 @@ export const TaskCardHeader = ({ task }: TaskCardHeaderProps) => {
   const { id, name, status, priority } = task;
 
   const handleRemoveClick = () => {
-    dispatch(tasksActions.removeTask({ id }));
     dispatch(statusesActions.removeTask({ id, status }));
   };
 

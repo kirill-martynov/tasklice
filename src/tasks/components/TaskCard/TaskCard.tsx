@@ -5,11 +5,12 @@ import cn from 'classnames';
 import { Svg } from '@core/components/Svg';
 import { Task } from '@core/types/task';
 
+import { taskViewActions } from '@tasks/store/task/taskView/taskViewSlice';
+
 import { TaskCardHeader } from './components/TaskCardHeader';
 
 import s from './TaskCard.module.scss';
 import { useDispatch } from 'react-redux';
-import { taskViewActions } from '@tasks/store/task/taskView/taskViewSlice';
 
 interface TaskCardProps {
   task: Task;
@@ -22,6 +23,7 @@ export const TaskCard = ({ task, index }: TaskCardProps) => {
   const handleClick = () => {
     dispatch(taskViewActions.setTask(task));
   };
+
   return (
     <Draggable draggableId={task.id} index={index} key={task.id}>
       {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (

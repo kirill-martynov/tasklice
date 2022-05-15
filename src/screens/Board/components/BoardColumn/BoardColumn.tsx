@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { Task } from '@core/types/task';
 import { TaskCard } from '@tasks/components/TaskCard';
 
-import { STATUS_LABELS } from '@screens/Board/boardConstants';
+import { TASK_LABELS } from '@tasks/tasksConstants';
 
 import s from './BoardColumn.module.scss';
 
@@ -14,7 +14,7 @@ interface BoardColumnProps {
 }
 
 export const BoardColumn = ({ status, tasks }: BoardColumnProps) => {
-  const title = STATUS_LABELS[status];
+  const title = TASK_LABELS[status];
 
   return (
     <div className={s.root}>
