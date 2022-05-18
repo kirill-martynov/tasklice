@@ -18,6 +18,7 @@ interface InputProps {
   placeholder?: string;
   type?: 'text' | 'email' | 'password';
   autoComplete?: 'on' | 'off';
+  autoFocus?: boolean;
   icon?: {
     name?: string;
     width?: number;
@@ -35,6 +36,7 @@ export const Input = ({
   placeholder,
   type = 'text',
   autoComplete = 'off',
+  autoFocus,
   icon = {},
   onChange,
 }: InputProps) => {
@@ -67,6 +69,7 @@ export const Input = ({
           value={value}
           placeholder={placeholder}
           autoComplete={autoComplete}
+          autoFocus={autoFocus}
           onChange={handleChange}
         />
       </div>

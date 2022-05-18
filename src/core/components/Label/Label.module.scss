@@ -1,0 +1,76 @@
+.root {
+  display: flex;
+  align-items: center;
+  padding: 2px 6px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  border-radius: 4px;
+}
+
+.priority {
+  color: #fff;
+
+  &.low {
+    background-color: #12b76a;
+  }
+
+  &.normal {
+    background-color: #fdb022;
+
+    svg {
+      transform: rotate(90deg);
+    }
+  }
+
+  &.high {
+    background-color: #f04438;
+  }
+}
+
+.type {
+  &.task {
+    color: var(--task-text);
+
+    background-color: var(--task-bg);
+  }
+
+  &.bug {
+    color: var(--bug-text);
+
+    background-color: var(--bug-bg);
+  }
+
+  &.feature {
+    color: var(--feature-text);
+
+    background-color: var(--feature-bg);
+  }
+
+  &.improvement {
+    color: var(--improvement-text);
+
+    background-color: var(--improvement-bg);
+  }
+}
+
+.status {
+  &.todo {
+    color: rgb(24 51 71);
+
+    background: rgb(211 229 239);
+  }
+
+  &.progress {
+    color: rgb(64 44 27);
+
+    background: rgb(253 236 200);
+  }
+
+  &.review {
+    color: rgb(65 36 84);
+
+    background: rgb(232 222 238);
+  }
+}

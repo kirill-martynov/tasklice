@@ -28,11 +28,15 @@ export const TaskCardHeader = ({ task }: TaskCardHeaderProps) => {
 
   const { id, name, status, priority } = task;
 
-  const handleRemoveClick = () => {
+  const handleRemoveClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+
     dispatch(statusesActions.removeTask({ id, status }));
   };
 
-  const handleEditClick = () => {
+  const handleEditClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+
     dispatch(taskEditorActions.toggleEditor(task));
   };
 
@@ -62,10 +66,10 @@ export const TaskCardHeader = ({ task }: TaskCardHeaderProps) => {
           {...attributes.popper}
         >
           <div className={s.popperContent}>
-            <button className={s.popperButton} onClick={handleEditClick}>
+            <button className={s.popperButton} onClick={(event) => handleEditClick(event)}>
               <Svg src="icons/edit.svg" width={14} height={14} />
             </button>
-            <button className={s.popperButton} onClick={handleRemoveClick}>
+            <button className={s.popperButton} onClick={(event) => handleRemoveClick(event)}>
               <Svg src="icons/trash.svg" width={14} height={14} />
             </button>
           </div>

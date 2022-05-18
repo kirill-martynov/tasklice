@@ -48,6 +48,13 @@
   font-size: 12px;
   font-weight: 600;
   line-height: 18px;
+
+  ul,
+  ol {
+    padding: 0;
+
+    list-style: none;
+  }
 }
 
 .info {

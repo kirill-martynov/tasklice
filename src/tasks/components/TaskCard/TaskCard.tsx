@@ -11,6 +11,7 @@ import { TaskCardHeader } from './components/TaskCardHeader';
 
 import s from './TaskCard.module.scss';
 import { useDispatch } from 'react-redux';
+import ReactMarkdown from 'react-markdown';
 
 interface TaskCardProps {
   task: Task;
@@ -39,7 +40,7 @@ export const TaskCard = ({ task, index }: TaskCardProps) => {
           <TaskCardHeader task={task} />
           <div className={s.content}>
             <div className={s.descriptionWrapper}>
-              <p className={s.description}>{task.description}</p>
+              <ReactMarkdown className={s.description}>{task.description}</ReactMarkdown>
             </div>
             <div className={s.info}>
               <div className={s.typeWrapper}>

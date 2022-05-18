@@ -1,0 +1,116 @@
+.root {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+
+  font-size: 14px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  width: 110px;
+
+  color: var(--gray-500);
+  font-weight: 500;
+
+  svg {
+    margin-right: 6px;
+  }
+
+  svg path {
+    stroke: var(--gray-500);
+  }
+}
+
+.value {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 34px;
+  padding: 0 8px;
+
+  text-transform: capitalize;
+
+  border-radius: 4px;
+  cursor: pointer;
+
+  transition: background-color 50ms ease-in;
+
+  &:hover {
+    background-color: var(--gray-50);
+  }
+
+  &.active {
+    background-color: var(--gray-50);
+  }
+}
+
+.popper {
+  z-index: 1;
+
+  width: 100px;
+
+  padding-top: 8px;
+
+  font-size: 12px;
+
+  background: #fff;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+
+  box-shadow: 0 8px 16px -4px #091e4240, 0 0 0 1px #091e4214;
+  transition: opacity 100ms ease-in;
+
+  &.popperShow {
+    opacity: 1;
+    pointer-events: initial;
+  }
+}
+
+.popperHeader {
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  margin-bottom: 6px;
+
+  border-bottom: 1px solid var(--gray-200);
+
+  .popperTitle {
+    color: var(--gray-400);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+.popperContent {
+  padding-bottom: 8px;
+}
+
+.popperItem {
+  padding-top: 6px;
+  padding-right: 12px;
+  padding-bottom: 6px;
+  padding-left: 12px;
+
+  color: var(--gray-500);
+  font-size: 12px;
+
+  cursor: pointer;
+
+  &:last-child {
+    padding-bottom: 6px;
+  }
+
+  &:hover {
+    background-color: var(--gray-50);
+  }
+}

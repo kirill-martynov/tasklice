@@ -1,5 +1,5 @@
 export const MENU = [
-  { label: 'Home', path: '/', icon: 'home' },
+  { label: 'Dashboard', path: '/', icon: 'home' },
+  { label: 'Projects', path: '/projects', icon: 'board' },
   { label: 'Tasks', path: '/tasks', icon: 'tasks' },
-  { label: 'Board', path: '/board', icon: 'board' },
 ];
