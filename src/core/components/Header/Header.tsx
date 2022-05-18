@@ -15,7 +15,7 @@ const DEFAULT_FORM_DATA = {
   name: '',
   description: '',
   status: 'todo',
-  type: 'feature',
+  type: 'task',
   priority: 'normal',
 };
 

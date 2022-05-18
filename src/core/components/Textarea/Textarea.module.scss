@@ -33,4 +33,19 @@
 
     box-shadow: 0 1px 2px rgb(16 24 40 / 5%), 0 0 0 4px var(--primary-50);
   }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    min-height: 200px;
+
+    background-color: var(--thirdly-color);
+    border-radius: 10px;
+  }
 }

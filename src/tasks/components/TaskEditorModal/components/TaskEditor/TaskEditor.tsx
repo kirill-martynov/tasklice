@@ -12,6 +12,9 @@ import { statusesActions } from '@core/store/statuses/statusesSlice';
 import { taskEditorActions } from '@tasks/store/task/taskEditor/taskEditorSlice';
 import { getTaskEditorDataSelector } from '@tasks/store/task/taskEditor/taskEditorSelectors';
 
+import { TaskEditorOption } from '../TaskEditorOption';
+import { TaskEditorHeader } from '../TaskEditorHeader';
+
 import s from './TaskEditor.module.scss';
 
 export const TaskEditor = () => {
@@ -49,27 +52,11 @@ export const TaskEditor = () => {
 
   return (
     <div className={s.root}>
-      <div className={s.header}>
-        <h2 className={s.title}>Create task</h2>
-      </div>
+      <TaskEditorHeader task={formData} onChange={handleFieldChange} />
       <div className={s.content}>
-        <div className={cn(s.field, s.fieldName)}>
-          <div className={s.labelField}>
-            <Svg src="icons/envelope.svg" width={18} height={18} />
-            <span>Task Name</span>
-          </div>
-          <Input
-            className={s.inputField}
-            name="name"
-            value={formData.name}
-            placeholder="Enter task name"
-            onChange={handleFieldChange}
-          />
-        </div>
-
         <div className={cn(s.field, s.fieldDescription)}>
           <div className={s.labelField}>
-            <Svg src="icons/text.svg" width={18} height={18} />
+            <Svg src="icons/text.svg" width={14} height={14} />
             <span>Description</span>
           </div>
           <Textarea
