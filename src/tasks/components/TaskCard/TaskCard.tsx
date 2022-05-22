@@ -1,5 +1,6 @@
-import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Draggable, DraggableProvided, DraggableStateSnapshot } from 'react-beautiful-dnd';
+import ReactMarkdown from 'react-markdown';
 import cn from 'classnames';
 
 import { Svg } from '@core/components/Svg';
@@ -10,8 +11,6 @@ import { taskViewActions } from '@tasks/store/task/taskView/taskViewSlice';
 import { TaskCardHeader } from './components/TaskCardHeader';
 
 import s from './TaskCard.module.scss';
-import { useDispatch } from 'react-redux';
-import ReactMarkdown from 'react-markdown';
 
 interface TaskCardProps {
   task: Task;
@@ -43,7 +42,7 @@ export const TaskCard = ({ task, index }: TaskCardProps) => {
               <ReactMarkdown className={s.description}>{task.description}</ReactMarkdown>
             </div>
             <div className={s.info}>
-              <div className={s.typeWrapper}>
+              <div>
                 <span className={cn(s.type, s[task.type])}>{task.type}</span>
               </div>
               <div className={s.participant}>
@@ -57,7 +56,7 @@ export const TaskCard = ({ task, index }: TaskCardProps) => {
                 <Svg src="icons/attachment.svg" width={12} height={12} />
                 <span>2</span>
               </div>
-              <div className={cn(s.metaItem, s.messages)}>
+              <div className={s.metaItem}>
                 <Svg src="icons/message-square.svg" width={12} height={12} />
                 <span>15</span>
               </div>
