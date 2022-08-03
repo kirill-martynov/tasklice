@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import cn from 'classnames';
 
-import { Input } from '@core/components/Input';
 import { Svg } from '@core/components/Svg';
 import { Textarea } from '@core/components/Textarea';
 import { Button } from '@core/components/Button';
@@ -12,7 +11,6 @@ import { statusesActions } from '@core/store/statuses/statusesSlice';
 import { taskEditorActions } from '@tasks/store/task/taskEditor/taskEditorSlice';
 import { getTaskEditorDataSelector } from '@tasks/store/task/taskEditor/taskEditorSelectors';
 
-import { TaskEditorOption } from '../TaskEditorOption';
 import { TaskEditorHeader } from '../TaskEditorHeader';
 
 import s from './TaskEditor.module.scss';
@@ -54,7 +52,7 @@ export const TaskEditor = () => {
     <div className={s.root}>
       <TaskEditorHeader task={formData} onChange={handleFieldChange} />
       <div className={s.content}>
-        <div className={cn(s.field, s.fieldDescription)}>
+        <div>
           <div className={s.labelField}>
             <Svg src="icons/text.svg" width={14} height={14} />
             <span>Description</span>
