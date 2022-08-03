@@ -5,26 +5,32 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 import { aliases } from './vite/aliases';
 
-export default defineConfig(() => {
-  return {
-    resolve: { alias: aliases },
-
-    css: {
-      modules: {
-        generateScopedName: '[name]__[local]___[hash:base64:5]',
+export default defineConfig({
+  resolve: { alias: aliases },
+  css: {
+    modules: {
+      generateScopedName: '[name]__[local]___[hash:base64:5]',
+    },
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000/api',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+        secure: false,
       },
     },
-
-    plugins: [
-      react(),
-      tsconfigPaths(),
-      checker({
-        overlay: false,
-        typescript: true,
-        eslint: {
-          lintCommand: 'eslint "./src/**/*.{ts,tsx}"',
-        },
-      }),
-    ],
-  };
+  },
+  plugins: [
+    react(),
+    tsconfigPaths(),
+    checker({
+      overlay: false,
+      typescript: true,
+      eslint: {
+        lintCommand: 'eslint "./src/**/*.{ts,tsx}"',
+      },
+    }),
+  ],
 });

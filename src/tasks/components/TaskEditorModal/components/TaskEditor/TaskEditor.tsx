@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
-import cn from 'classnames';
 
 import { Svg } from '@core/components/Svg';
 import { Textarea } from '@core/components/Textarea';
@@ -14,6 +12,7 @@ import { getTaskEditorDataSelector } from '@tasks/store/task/taskEditor/taskEdit
 import { TaskEditorHeader } from '../TaskEditorHeader';
 
 import s from './TaskEditor.module.scss';
+import { createTask } from '@tasks/store/tasks/tasksThunks';
 
 export const TaskEditor = () => {
   const dispatch = useDispatch();
@@ -36,11 +35,10 @@ export const TaskEditor = () => {
 
     if (!formData?.id) {
       const item = {
-        id: uuidv4(),
         ...formData,
       };
 
-      dispatch(statusesActions.addTask({ task: item }));
+      dispatch(createTask(item));
     }
 
     dispatch(taskEditorActions.toggleEditor({}));

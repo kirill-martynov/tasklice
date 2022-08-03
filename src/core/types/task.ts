@@ -4,6 +4,6 @@ export type Task = {
   description: string;
   files: string[];
   priority: 'low' | 'normal' | 'high';
-  type: 'bug' | 'feature' | 'improvement';
+  type: 'task' | 'bug' | 'feature' | 'improvement';
   status: string;
 };
