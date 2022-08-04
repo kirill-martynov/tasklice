@@ -8,7 +8,9 @@ import { persistor, reduxHistory, store } from '@core/redux/store';
 
 import App from './App';
 
-import './assets/css/variables.css';
+import './assets/css/sizes.css';
+import './assets/css/fonts.css';
+import './assets/css/colors.css';
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
