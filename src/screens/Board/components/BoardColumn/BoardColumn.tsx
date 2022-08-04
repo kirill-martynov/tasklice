@@ -34,7 +34,7 @@ export const BoardColumn = ({ status, tasks }: BoardColumnProps) => {
             })}
           >
             {tasks.map((task: Task, index: number) => (
-              <TaskCard key={task.id} index={index} task={task} />
+              <TaskCard key={task._id} index={index} task={task} />
             ))}
             {provided.placeholder}
           </div>

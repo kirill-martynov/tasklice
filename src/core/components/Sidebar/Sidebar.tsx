@@ -12,7 +12,7 @@ export const Sidebar = () => {
   return (
     <div className={s.root}>
       <NavLink className={s.logo} to="/">
-        <span>T</span>asklice
+        <span>T</span>Tasklice
       </NavLink>
       <div className={s.content}>
         {MENU.map((item) => (
