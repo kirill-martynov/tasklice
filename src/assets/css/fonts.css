@@ -1,0 +1,27 @@
+:root {
+  /* Titles */
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-lh-xs: 18px;
+  --text-lh-sm: 20px;
+  --text-lh-md: 24px;
+  --text-lh-lg: 28px;
+  --text-lh-xl: 30px;
+
+  /* Text */
+  --title-xs: 20px;
+  --title-sm: 24px;
+  --title-md: 30px;
+  --title-lg: 36px;
+  --title-xl: 48px;
+  --title-xll: 60px;
+  --title-lh-xs: 32px;
+  --title-lh-sm: 38px;
+  --title-lh-md: 44px;
+  --title-lh-lg: 60px;
+  --title-lh-xl: 72px;
+  --title-lh-xll: 90px;
+}

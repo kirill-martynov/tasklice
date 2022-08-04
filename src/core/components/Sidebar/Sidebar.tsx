@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import SVG from 'react-inlinesvg';
 import cn from 'classnames';
