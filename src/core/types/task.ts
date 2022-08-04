@@ -1,5 +1,5 @@
 export type Task = {
-  id: string;
+  _id: string;
   name: string;
   description: string;
   files: string[];

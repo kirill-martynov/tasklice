@@ -55,7 +55,7 @@ const statusesSlice = createSlice({
       const taskStatus = prevStatus || item.status;
 
       const taskIndex = state.columns[taskStatus].items.findIndex(
-        (task: Task) => task.id === item.id
+        (task: Task) => task._id === item.id
       );
 
       state.columns[taskStatus].items[taskIndex] = item;
@@ -64,7 +64,7 @@ const statusesSlice = createSlice({
       const { id, status } = action.payload;
 
       state.columns[status].items = state.columns[status].items.filter(
-        (item: Task) => item.id !== id
+        (item: Task) => item._id !== id
       );
     },
     moveTask: (state, action) => {
@@ -73,8 +73,8 @@ const statusesSlice = createSlice({
       const currentColumn = state.columns[sourceData.id];
       const destinationColumn = state.columns[destinationData.id];
 
-      const task = currentColumn.items.find((item: Task) => item.id === id);
-      const filteredTasks = currentColumn.items.filter((item: Task) => item.id !== id);
+      const task = currentColumn.items.find((item: Task) => item._id === id);
+      const filteredTasks = currentColumn.items.filter((item: Task) => item._id !== id);
 
       const isSameColumn = sourceData.id === destinationData.id;
 

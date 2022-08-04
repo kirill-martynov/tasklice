@@ -26,12 +26,12 @@ export const TaskCardHeader = ({ task }: TaskCardHeaderProps) => {
     placement: 'bottom-end',
   });
 
-  const { id, name, status, priority } = task;
+  const { _id, name, status, priority } = task;
 
   const handleRemoveClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
 
-    dispatch(statusesActions.removeTask({ id, status }));
+    dispatch(statusesActions.removeTask({ _id, status }));
   };
 
   const handleEditClick = (event: React.MouseEvent<HTMLButtonElement>) => {

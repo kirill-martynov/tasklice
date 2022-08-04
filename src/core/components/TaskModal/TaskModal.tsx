@@ -42,7 +42,7 @@ export const TaskModal = () => {
       const moveData = {
         sourceData: { id: task.status },
         destinationData: { id: data.status },
-        id: data.id,
+        id: data._id,
       };
 
       dispatch(statusesActions.moveTask(moveData));

@@ -20,7 +20,7 @@ export const Tasks = () => {
       <ScrollableWrapper>
         <div className={s.content}>
           {tasks.map((item: Task) => (
-            <TaskItem key={item.id} task={item} />
+            <TaskItem key={item._id} task={item} />
           ))}
         </div>
       </ScrollableWrapper>
