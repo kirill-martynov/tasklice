@@ -60,7 +60,7 @@ export const TaskModal = () => {
           <div className={s.content}>
             <div className={s.descriptionWrapper}>
               <div className={s.descriptionLabel}>
-                <Svg src="icons/text.svg" width={18} height={18} />
+                <Svg name="text" width={18} height={18} />
                 <span>Description</span>
               </div>
               <div className={s.description}>
@@ -71,16 +71,11 @@ export const TaskModal = () => {
             <div className={s.attachmentsWrapper}>
               <div className={s.attachmentsHeader}>
                 <span>
-                  <Svg
-                    src="icons/attachment.svg"
-                    width={18}
-                    height={18}
-                    className={s.attachmentIcon}
-                  />
+                  <Svg name="attachment" width={18} height={18} className={s.attachmentIcon} />
                   Attachments
                 </span>
                 <button>
-                  <Svg src="icons/plus.svg" width={16} height={16} className={s.attachmentIcon} />
+                  <Svg name="plus" width={16} height={16} className={s.attachmentIcon} />
                   Add an attachment
                 </button>
               </div>

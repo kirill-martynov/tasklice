@@ -53,11 +53,11 @@ export const TaskCard = ({ task, index }: TaskCardProps) => {
           <div className={s.footer}>
             <div className={s.meta}>
               <div className={cn(s.metaItem, s.attachment)}>
-                <Svg src="icons/attachment.svg" width={12} height={12} />
+                <Svg name="attachment" width={12} height={12} />
                 <span>2</span>
               </div>
               <div className={s.metaItem}>
-                <Svg src="icons/message-square.svg" width={12} height={12} />
+                <Svg name="message-square" width={12} height={12} />
                 <span>15</span>
               </div>
             </div>

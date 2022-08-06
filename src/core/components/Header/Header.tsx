@@ -43,9 +43,10 @@ export const Header = () => {
         </div>
         <div className={s.right}>
           <Button theme="secondary" className={s.addButton} onClick={handleAdd}>
-            <Svg src="icons/plus.svg" width={16} height={16} />
+            <Svg name="plus" width={16} height={16} />
             Add
           </Button>
+
           <Profile user={user} className={s.headerProfile} />
 
           <TaskEditorModal />

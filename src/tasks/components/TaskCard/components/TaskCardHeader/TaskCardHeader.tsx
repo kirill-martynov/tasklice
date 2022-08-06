@@ -57,7 +57,7 @@ export const TaskCardHeader = ({ task }: TaskCardHeaderProps) => {
             [s.expanded]: show,
           })}
         >
-          <Svg src="icons/more-horizontal.svg" width={24} height={24} />
+          <Svg name="more-horizontal" width={24} height={24} />
         </button>
         <div
           ref={setPopperElement}
@@ -67,10 +67,10 @@ export const TaskCardHeader = ({ task }: TaskCardHeaderProps) => {
         >
           <div className={s.popperContent}>
             <button className={s.popperButton} onClick={(event) => handleEditClick(event)}>
-              <Svg src="icons/edit.svg" width={14} height={14} />
+              <Svg name="edit" width={14} height={14} />
             </button>
             <button className={s.popperButton} onClick={(event) => handleRemoveClick(event)}>
-              <Svg src="icons/trash.svg" width={14} height={14} />
+              <Svg name="trash" width={14} height={14} />
             </button>
           </div>
         </div>

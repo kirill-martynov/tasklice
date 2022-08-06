@@ -69,7 +69,7 @@ export const TaskEditorOption = (props: TaskEditorOptionProps) => {
   return (
     <div className={cn(s.root, className)}>
       <div className={s.name}>
-        <Svg src={`icons/${type}.svg`} width={16} height={16} />
+        <Svg name={type} width={16} height={16} />
         {name}:
       </div>
       <div
