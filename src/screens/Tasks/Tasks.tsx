@@ -15,8 +15,6 @@ export const Tasks = () => {
 
   return (
     <div className={s.root}>
-      <Title className={s.title}>Tasks</Title>
-
       <ScrollableWrapper>
         <div className={s.content}>
           {tasks.map((item: Task) => (

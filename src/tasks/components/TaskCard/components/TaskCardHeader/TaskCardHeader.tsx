@@ -31,7 +31,7 @@ export const TaskCardHeader = ({ task }: TaskCardHeaderProps) => {
   const handleRemoveClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
 
-    dispatch(statusesActions.removeTask({ _id, status }));
+    dispatch(statusesActions.removeTask({ id: _id, status }));
   };
 
   const handleEditClick = (event: React.MouseEvent<HTMLButtonElement>) => {

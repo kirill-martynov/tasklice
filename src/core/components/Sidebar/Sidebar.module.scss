@@ -3,13 +3,17 @@
   flex-direction: column;
   width: 280px;
   padding: 32px 16px;
+  overflow: hidden;
 
   border-right: 1px solid var(--gray-200);
+
+  transition: width 0.3s ease-in-out;
 }
 
 .logo {
   display: flex;
   align-items: center;
+  padding-left: 5px;
   margin-bottom: 24px;
 
   color: var(--gray-900);
@@ -17,16 +21,20 @@
   font-weight: 600;
   text-decoration: none;
 
-  span {
-    padding: 2px 10px;
-    margin-right: 10px;
-
-    color: #fff;
-    font-size: var(--title-xs);
-
-    background-color: var(--primary-500);
-    border-radius: 6px;
+  span:last-child {
+    transition: opacity 0.3s ease-in-out;
   }
+}
+
+.logoIcon {
+  padding: 4px 12px;
+  margin-right: 8px;
+
+  color: #fff;
+  font-size: var(--title-xs);
+
+  background-color: var(--primary-500);
+  border-radius: 6px;
 }
 
 .content {
@@ -37,9 +45,11 @@
 
 .menuItem {
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   padding: 8px 12px;
   margin-bottom: 4px;
+  overflow: hidden;
 
   color: var(--gray-700);
   font-size: var(--text-md);
@@ -48,18 +58,28 @@
 
   border-radius: 6px;
 
+  transition: all linear 0.2s;
+
   &:hover {
     background-color: var(--primary-50);
   }
 
-  &:last-child {
+  &:nth-last-child(2) {
     margin-top: auto;
     margin-bottom: 0;
   }
 
-  svg {
-    margin-right: 12px;
+  span {
+    transition: opacity 0.3s ease-in-out;
+  }
+}
 
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 14px;
+
+  svg {
     path {
       stroke: var(--gray-500);
     }
@@ -78,5 +98,29 @@
   &:hover {
     opacity: initial;
     cursor: initial;
+  }
+}
+
+.button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+
+  &:hover {
+    background: 0;
+    opacity: 0.5;
+  }
+
+  svg {
+    transform: rotate(90deg);
+  }
+}
+
+.collapsed {
+  width: 80px;
+
+  .menuItem span,
+  .logo span:last-child {
+    opacity: 0;
   }
 }
