@@ -45,7 +45,7 @@ export const TaskModalHeader = ({ task, onChange }: TaskModalHeaderProps) => {
               onClick={() => handleUpdateTask('status', status)}
             >
               {STATUSES_PRIORITY[status] < STATUSES_PRIORITY[task.status] && (
-                <Svg src="icons/checkmark.svg" width={12} height={12} />
+                <Svg name="checkmark" width={12} height={12} />
               )}
               {TASK_LABELS[status]}
             </span>
@@ -54,7 +54,7 @@ export const TaskModalHeader = ({ task, onChange }: TaskModalHeaderProps) => {
       </div>
       <div className={s.titleWrapper}>
         <div className={s.titleLabel}>
-          <Svg src="icons/envelope.svg" width={18} height={18} />
+          <Svg name="envelope" width={18} height={18} />
           <span>Task Name</span>
         </div>
         <h3 className={s.title} onClick={handleClick}>
@@ -80,7 +80,7 @@ export const TaskModalHeader = ({ task, onChange }: TaskModalHeaderProps) => {
           <span className={s.optionLabel}>Priority</span>
           <div className={cn(s.optionValue, s.priority, s[task.priority])}>
             <Svg
-              src={`icons/priority-${task.priority}.svg`}
+              name={`priority-${task.priority}`}
               width={16}
               height={16}
               className={s.priorityIcon}
@@ -97,7 +97,7 @@ export const TaskModalHeader = ({ task, onChange }: TaskModalHeaderProps) => {
         <div className={s.option}>
           <span className={s.optionLabel}>Due Date</span>
           <div className={cn(s.optionValue, s.estimate)}>
-            <Svg src={`icons/clock.svg`} width={14} height={14} />
+            <Svg name="clock" width={14} height={14} />
             May 14, 2022
           </div>
         </div>

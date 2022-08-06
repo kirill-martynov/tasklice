@@ -14,12 +14,12 @@ interface TaskEditorProps {
   onChange: (fieldName: string, value: string) => void;
 }
 
-export const TaskEditorHeader = ({ task, onChange }) => {
+export const TaskEditorHeader = ({ task, onChange }: TaskEditorProps) => {
   return (
     <div className={s.root}>
       <div className={cn(s.field, s.fieldName)}>
         <div className={s.labelField}>
-          <Svg src="icons/envelope.svg" width={14} height={14} />
+          <Svg name="envelope" width={14} height={14} />
           <span>Task Name</span>
         </div>
         <Input

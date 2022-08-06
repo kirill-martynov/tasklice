@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
-import SVG from 'react-inlinesvg';
+import { Svg } from '../Svg';
 import cn from 'classnames';
 
 import { settingsActions } from '@core/store/settings/slice';
@@ -40,16 +40,16 @@ export const Sidebar = () => {
             to={item.path}
           >
             <div className={s.iconWrapper}>
-              <SVG src={`icons/${item.icon}.svg`} width={24} height={24} />
+              <Svg name={item.icon} />
             </div>
             <span>{item.label}</span>
           </NavLink>
         ))}
         <button className={cn(s.menuItem, s.button)} onClick={handleCollapse}>
           <div className={s.iconWrapper}>
-            <SVG src={`icons/download.svg`} width={24} height={24} />
+            <Svg name="download" />
           </div>
-          Collapse
+          <span>Collapse</span>
         </button>
       </div>
     </div>

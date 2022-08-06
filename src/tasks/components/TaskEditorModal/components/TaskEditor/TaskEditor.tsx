@@ -52,7 +52,7 @@ export const TaskEditor = () => {
       <div className={s.content}>
         <div>
           <div className={s.labelField}>
-            <Svg src="icons/text.svg" width={14} height={14} />
+            <Svg name="text" width={14} height={14} />
             <span>Description</span>
           </div>
           <Textarea
