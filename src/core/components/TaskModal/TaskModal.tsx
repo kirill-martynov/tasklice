@@ -22,11 +22,11 @@ export const TaskModal = () => {
 
   const task = useSelector(getTaskSelector);
 
+  const hasTask = !isEmpty(data);
+
   React.useEffect(() => {
     setData(task);
   }, [task]);
-
-  const hasTask = !isEmpty(data);
 
   const handleUpdate = (field: string, value: string) => {
     const item = { ...data, [field]: value };

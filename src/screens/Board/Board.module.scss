@@ -1,3 +1,11 @@
 .title {
   margin-bottom: 50px;
 }
+
+.root {
+  .scrollableWrapper {
+    height: initial;
+    padding: 0;
+    padding-right: var(--spacing-4);
+  }
+}

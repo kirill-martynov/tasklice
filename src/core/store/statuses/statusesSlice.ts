@@ -1,8 +1,7 @@
-import { Task } from '@core/types/task';
 import { createSlice } from '@reduxjs/toolkit';
 
-import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import { Task } from '@core/types/task';
+import { DEFAULT_COLUMNS, DEFAULT_STATUSES } from '@core/constants/columns';
 
 interface StatusesState {
   statuses: string[];
@@ -23,27 +22,31 @@ interface StatusesState {
 }
 
 const initialState: StatusesState = {
-  statuses: ['todo', 'progress', 'review', 'done'],
-  columns: {
-    todo: {
-      items: [],
-    },
-    progress: {
-      items: [],
-    },
-    review: {
-      items: [],
-    },
-    done: {
-      items: [],
-    },
-  },
+  statuses: DEFAULT_STATUSES,
+  columns: DEFAULT_COLUMNS,
 };
 
 const statusesSlice = createSlice({
   name: 'statuses',
   initialState,
   reducers: {
+    loadTasks: (state, action) => {
+      const { tasks } = action.payload;
+
+      const columnsWithTasks = tasks.reduce((acc: typeof DEFAULT_COLUMNS, item: Task) => {
+        const columnWithItems = acc[item.status].items;
+        const columns = {
+          ...acc,
+          [item.status]: {
+            items: [...columnWithItems, item],
+          },
+        };
+
+        return columns;
+      }, DEFAULT_COLUMNS);
+
+      state.columns = columnsWithTasks;
+    },
     addTask: (state, action) => {
       const { task } = action.payload;
 
@@ -106,11 +109,4 @@ const statusesSlice = createSlice({
   },
 });
 
-const statusesPersistConfig = {
-  key: 'stasuses',
-  storage,
-};
-
-export const statusesReducer = persistReducer(statusesPersistConfig, statusesSlice.reducer);
-
-export const { actions: statusesActions } = statusesSlice;
+export const { reducer: statusesReducer, actions: statusesActions } = statusesSlice;
