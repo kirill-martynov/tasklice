@@ -9,5 +9,5 @@ interface ScrollableProps {
 }
 
 export const ScrollableWrapper = ({ children, className }: ScrollableProps) => {
-  return <div className={cn(s.root, className)}>{children}</div>;
+  return <div className={cn(className, s.root)}>{children}</div>;
 };

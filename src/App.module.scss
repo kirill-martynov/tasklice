@@ -12,8 +12,8 @@
 .content {
   position: relative;
 
-  padding-top: 30px;
-  padding-right: 30px;
+  padding-top: var(--spacing-24);
+  padding-right: var(--spacing-20);
   padding-bottom: 0;
-  padding-left: 30px;
+  padding-left: var(--spacing-20);
 }
