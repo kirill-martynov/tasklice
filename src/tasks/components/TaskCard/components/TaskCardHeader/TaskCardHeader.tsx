@@ -5,8 +5,8 @@ import cn from 'classnames';
 
 import { Svg } from '@core/components/Svg';
 import { Task } from '@core/types/task';
-import { statusesActions } from '@core/store/statuses/statusesSlice';
 
+import { deleteTask } from '@tasks/store/tasks/tasksThunks';
 import { taskEditorActions } from '@tasks/store/task/taskEditor/taskEditorSlice';
 
 import s from './TaskCardHeader.module.scss';
@@ -26,12 +26,12 @@ export const TaskCardHeader = ({ task }: TaskCardHeaderProps) => {
     placement: 'bottom-end',
   });
 
-  const { _id, name, status, priority } = task;
+  const { name, priority } = task;
 
   const handleRemoveClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
 
-    dispatch(statusesActions.removeTask({ id: _id, status }));
+    dispatch(deleteTask(task));
   };
 
   const handleEditClick = (event: React.MouseEvent<HTMLButtonElement>) => {

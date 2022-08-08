@@ -29,10 +29,26 @@ export const getTaskById = createAsyncThunk(
   async (id: string, { dispatch }) => {
     try {
       const { data } = await api.tasks.item(id);
-
-      console.log('data', data);
     } catch (error) {
       console.error('error', error);
     }
   }
 );
+
+export const updateTask = createAsyncThunk('tasks/updateTask', async (task: Task, { dispatch }) => {
+  try {
+    await api.tasks.update(task);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+export const deleteTask = createAsyncThunk('tasks/deleteTask', async (task: Task, { dispatch }) => {
+  try {
+    await api.tasks.delete(task._id);
+
+    dispatch(statusesActions.removeTask({ id: task._id, status: task.status }));
+  } catch (error) {
+    console.error('error', error);
+  }
+});

@@ -8,6 +8,7 @@
   border-right: 1px solid var(--gray-200);
 
   transition: width 0.3s ease-in-out;
+  will-change: width;
 }
 
 .logo {

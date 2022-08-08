@@ -3,8 +3,8 @@
 
   width: 100%;
   min-width: 200px;
-  padding: 15px 10px;
-  margin-bottom: 20px;
+  padding: var(--spacing-16) var(--spacing-8);
+  margin-bottom: var(--spacing-16);
   overflow: hidden;
 
   background-color: #fff;
@@ -12,20 +12,19 @@
   border-radius: 8px;
   cursor: pointer !important;
 
-  box-shadow: 0 4px 8px -2px rgb(16 24 40 / 10%), 0 2px 4px -2px rgb(16 24 40 / 6%);
+  box-shadow: $shadow-md;
   transition-duration: 0.3s;
   transition-property: box-shadow;
   transition-timing-function: linear;
 
   &:hover {
-    box-shadow: 0 24px 48px -12px rgb(16 24 40 / 18%);
+    box-shadow: $shadow-xl;
   }
 
   &.dragging {
     position: relative;
 
     border-color: var(--gray-300);
-
     border-style: dashed;
 
     opacity: 0.7;
