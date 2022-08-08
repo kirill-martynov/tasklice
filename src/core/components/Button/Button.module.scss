@@ -3,12 +3,12 @@
   justify-content: center;
   align-items: center;
   min-width: 100px;
-  padding: 10px 18px;
+  padding: var(--spacing-8) var(--spacing-16);
 
-  color: #fff;
-  font-size: 16px;
+  color: var(--white);
+  font-size: var(--text-sm);
   font-weight: 500;
-  line-height: inherit;
+  line-height: var(--text-lh-sm);
 
   background-color: var(--primary-600);
   border: 1px solid transparent;

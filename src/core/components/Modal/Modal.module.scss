@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 10;
 
   width: 100vw;
   height: 100vh;
@@ -35,8 +35,7 @@
   background: white;
   border-radius: 8px;
 
-  box-shadow: 0 20px 24px -4px rgb(16 24 40 / 8%),
-    0 8px 8px -4px rgb(16 24 40 / 3%);
+  box-shadow: 0 20px 24px -4px rgb(16 24 40 / 8%), 0 8px 8px -4px rgb(16 24 40 / 3%);
 
   transition: opacity 300ms, transform 300ms;
 }

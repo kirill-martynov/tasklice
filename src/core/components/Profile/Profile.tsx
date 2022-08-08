@@ -15,27 +15,41 @@ interface ProfileProps {
 export const Profile = ({ user, className }: ProfileProps) => {
   return (
     <div className={cn(s.root, className)}>
-      <div className={s.headerProfile}>
+      <div className={s.header}>
         <Avatar gender={user.gender} />
-        <span className={s.prefix}>Hey,</span>
-        <span className={s.name}>{user.firstName}</span>
-        <Svg className={s.arrowIcon} name="arrow-down" />
+        <div className={s.info}>
+          <span className={s.name}>
+            {user.firstName} {user.lastName}
+          </span>
+          <span className={s.email}>{user.email}</span>
+        </div>
+        <div className={s.iconWrapper}>
+          <Svg name="arrow-down" width={20} height={20} />
+        </div>
       </div>
 
       <div className={s.dropdown}>
-        <div className={s.dropdownItem}>
-          <NavLink to="/settings">
-            <Svg name="settings" width={20} height={20} />
-            Settings
-          </NavLink>
-        </div>
-
-        <div className={s.dropdownItem}>
-          <NavLink to="/logout">
-            <Svg name="logout" width={20} height={20} />
-            Log out
-          </NavLink>
-        </div>
+        <ul className={s.actions}>
+          <li className={s.actionItem}>
+            <span className={s.actionItemIcon}>
+              <Svg name="user" width={16} height={16} />
+            </span>
+            <span>Profile</span>
+          </li>
+          <li className={s.actionItem}>
+            <span className={s.actionItemIcon}>
+              <Svg name="settings" width={16} height={16} />
+            </span>
+            <span>Settings</span>
+          </li>
+          <hr />
+          <li className={s.actionItem}>
+            <span className={s.actionItemIcon}>
+              <Svg name="logout" width={16} height={16} />
+            </span>
+            <span>Log out</span>
+          </li>
+        </ul>
       </div>
     </div>
   );

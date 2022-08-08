@@ -1,7 +1,7 @@
 .content {
   display: flex;
   align-items: center;
-  padding: var(--spacing-24) var(--spacing-16);
+  padding: var(--spacing-20) var(--spacing-16);
 
   border-bottom: 1px solid var(--gray-200);
 }
@@ -12,20 +12,20 @@
 }
 
 .addButton {
+  align-self: center;
   min-width: initial;
-  margin-right: 20px;
+  margin-right: var(--spacing-24);
 
-  color: var(--gray-600);
-  font-size: 14px;
-  font-weight: 600;
+  color: var(--white);
+}
 
-  border-style: dashed;
+.iconWrapper {
+  margin-right: var(--spacing-4);
 
-  svg {
-    margin-right: 4px;
-  }
+  font-size: 0;
+  line-height: initial;
 
   svg path {
-    fill: var(--gray-600);
+    stroke: var(--white);
   }
 }
