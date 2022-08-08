@@ -9,10 +9,10 @@ interface UserState {
 const initialState: UserState = {
   user: {
     id: 1,
-    firstName: 'Christina',
-    lastName: 'Martynova',
-    gender: 'female',
-    email: 'christina.m@gmail.com',
+    firstName: 'Peter',
+    lastName: 'Parker',
+    gender: 'male',
+    email: 'peter.p@gmail.com',
   },
 };
 

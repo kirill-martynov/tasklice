@@ -42,12 +42,14 @@ export const Header = () => {
           <Title>{pageTitle}</Title>
         </div>
         <div className={s.right}>
-          <Button theme="secondary" className={s.addButton} onClick={handleAdd}>
-            <Svg name="plus" width={16} height={16} />
-            Add
+          <Button className={s.addButton} onClick={handleAdd}>
+            <span className={s.iconWrapper}>
+              <Svg name="plus" width={16} height={16} />
+            </span>
+            <span>Add</span>
           </Button>
 
-          <Profile user={user} className={s.headerProfile} />
+          <Profile user={user} />
 
           <TaskEditorModal />
         </div>

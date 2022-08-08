@@ -12,7 +12,7 @@ interface AvatarProps {
 export const Avatar = ({ className, src, gender }: AvatarProps) => {
   return (
     <div className={cn(s.root, className)}>
-      <img className={s.avatar} src={src || `icons/avatars/${gender}-2.svg`} alt="avatar" />
+      <img className={s.avatar} src={src || `icons/avatars/${gender}-5.svg`} alt="avatar" />
     </div>
   );
 };
