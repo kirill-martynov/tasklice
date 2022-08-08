@@ -1,8 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
 
+import { Task } from '@core/types/task';
 import { getStatusesColumns } from '@core/store/statuses/statusesSelectors';
 import { statusesActions } from '@core/store/statuses/statusesSlice';
+
+import { getTasksDataSelector } from '@tasks/store/tasks/tasksSelectors';
+import { updateTask } from '@tasks/store/tasks/tasksThunks';
 
 import { BoardColumn } from '../BoardColumn/BoardColumn';
 
@@ -12,6 +16,7 @@ export const BoardColumns = () => {
   const dispatch = useDispatch();
 
   const columns = useSelector(getStatusesColumns);
+  const tasks = useSelector(getTasksDataSelector);
 
   const handleOnDragEnd = (result) => {
     if (!result.destination) {
@@ -25,7 +30,11 @@ export const BoardColumns = () => {
       id: draggableId,
     };
 
+    const currentTask = tasks.find((item: Task) => item._id === data.id);
+    const task = { ...currentTask, status: data.destinationData.id };
+
     dispatch(statusesActions.moveTask(data));
+    dispatch(updateTask(task));
   };
 
   return (

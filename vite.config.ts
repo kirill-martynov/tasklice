@@ -11,6 +11,11 @@ export default defineConfig({
     modules: {
       generateScopedName: '[name]__[local]___[hash:base64:5]',
     },
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "./src/assets/scss/variables.scss";`,
+      },
+    },
   },
   server: {
     proxy: {
