@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Routes, Route } from 'react-router';
 
-import { Sidebar } from '@core/components/Sidebar';
+import { Navigation } from '@core/components/Navigation';
 import { Header } from '@core/components/Header';
 import { Preloader } from '@core/components/Preloader';
 import { TaskModal } from '@core/components/TaskModal';
@@ -19,7 +19,7 @@ const ROUTES = [
 function App() {
   return (
     <div className={s.root}>
-      <Sidebar />
+      <Navigation />
       <main className={s.main}>
         <Header />
         <div className={s.content}>

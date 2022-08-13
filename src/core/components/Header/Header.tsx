@@ -14,6 +14,7 @@ import { taskEditorActions } from '@tasks/store/task/taskEditor/taskEditorSlice'
 import { TaskEditorModal } from '@tasks/components/TaskEditorModal';
 
 import s from './Header.module.scss';
+import { TaskEditorSidebar } from '@tasks/components/TaskEditorSidebar';
 
 const DEFAULT_FORM_DATA = {
   name: '',
@@ -51,7 +52,7 @@ export const Header = () => {
 
           <Profile user={user} />
 
-          <TaskEditorModal />
+          <TaskEditorSidebar />
         </div>
       </div>
     </div>
