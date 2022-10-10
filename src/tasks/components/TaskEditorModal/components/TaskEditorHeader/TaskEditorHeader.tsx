@@ -15,42 +15,5 @@ interface TaskEditorProps {
 }
 
 export const TaskEditorHeader = ({ task, onChange }: TaskEditorProps) => {
-  return (
-    <div className={s.root}>
-      <div className={cn(s.field, s.fieldName)}>
-        <div className={s.labelField}>
-          <Svg name="envelope" width={14} height={14} />
-          <span>Task Name</span>
-        </div>
-        <Input
-          className={s.inputField}
-          name="name"
-          value={task.name}
-          placeholder="Enter task name"
-          autoFocus
-          onChange={onChange}
-        />
-      </div>
-      <div className={s.options}>
-        <TaskEditorOption type="status" name="Status" value={task.status} onClick={onChange} />
-        <TaskEditorOption type="type" name="Type" value={task.type} onClick={onChange} />
-        <TaskEditorOption
-          type="priority"
-          name="Priority"
-          value={task.priority}
-          onClick={onChange}
-        />
-        <TaskEditorOption type="users" name="Assignee" value={task.type} onClick={onChange} />
-        {/* <div className={s.option}> */}
-        {/*   <span className={s.optionLabel}>Participants:</span> */}
-        {/*   <span className={cn(s.optionValue, s.optionValueList)}> */}
-        {/*     <div className={s.participant}> */}
-        {/*       <img src={`icons/avatars/female-2.svg`} alt="avatar" /> */}
-        {/*     </div> */}
-        {/*     <span>Christina M.</span> */}
-        {/*   </span> */}
-        {/* </div> */}
-      </div>
-    </div>
-  );
+  return <div className={s.root}>TaskEditorHeader</div>;
 };

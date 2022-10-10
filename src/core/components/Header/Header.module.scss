@@ -14,9 +14,12 @@
 .addButton {
   align-self: center;
   min-width: initial;
+  padding-left: var(--spacing-20);
   margin-right: var(--spacing-24);
 
   color: var(--white);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .iconWrapper {
