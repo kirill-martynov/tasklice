@@ -20,7 +20,12 @@ export const TaskEditorModal = () => {
   };
 
   return (
-    <Modal className={s.taskModal} isShowing={hasData} onClose={handleClose}>
+    <Modal
+      className={s.taskModal}
+      isShowing={hasData}
+      onClose={handleClose}
+      options={{ hasCloseButton: false }}
+    >
       <TaskEditor />
     </Modal>
   );

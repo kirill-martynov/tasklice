@@ -22,13 +22,14 @@
   border-radius: 8px;
 
   box-shadow: 0 1px 2px rgb(16 24 40 / 5%);
-  transition: box-shadow linear 0.3s;
+  transition: all 150ms ease-out;
 
   &::placeholder {
     color: var(--gray-500);
   }
 
   &:focus {
+    border-color: var(--primary-300);
     outline: 0;
 
     box-shadow: 0 1px 2px rgb(16 24 40 / 5%), 0 0 0 4px var(--primary-50);

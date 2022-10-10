@@ -46,7 +46,7 @@ export const Header = () => {
             <span className={s.iconWrapper}>
               <Svg name="plus" width={16} height={16} />
             </span>
-            <span>Add</span>
+            <span>Add Task</span>
           </Button>
 
           <Profile user={user} />
