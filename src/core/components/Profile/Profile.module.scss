@@ -105,6 +105,20 @@
   padding: var(--spacing-8) var(--spacing-12);
 
   cursor: pointer;
+
+  transition: color 150ms ease-out;
+
+  &:hover {
+    color: var(--primary-700);
+
+    path {
+      stroke: var(--primary-700);
+    }
+  }
+
+  svg path {
+    transition: stroke 150ms ease-out;
+  }
 }
 
 .actionItemIcon {
