@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
-import { Svg } from '../Svg';
 import cn from 'classnames';
 
 import { settingsActions } from '@core/store/settings/slice';
 import { getSettingsSidebarCollapsed } from '@core/store/settings/selectors';
+
+import { Svg } from '../Svg';
 
 import { MENU } from './sidebarConstants';
 
